@@ -1,0 +1,11 @@
+SpiceFuzz generated DC operating-point netlist
+VDD vdd 0 DC 3.3
+M1 n1 n2 vdd vdd PMOS W=10u L=1u
+M2 n2 n1 0 0 NMOS W=10u L=1u
+R1 n1 0 100k
+R2 n2 0 100k
+RD1 n1 vdd 10k
+RD2 n2 vdd 10k
+.op
+.print op v(n1) v(n2) i(VDD)
+.end

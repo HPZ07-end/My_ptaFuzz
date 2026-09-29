@@ -1,0 +1,294 @@
+#!/usr/bin/env python3
+"""Verify legacy Newton and trust-region PTA on a selected latch branch."""
+
+from __future__ import annotations
+
+import argparse
+import math
+import re
+import subprocess
+import sys
+import tempfile
+from contextlib import nullcontext
+from pathlib import Path
+
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+if str(SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPT_DIR))
+
+from compare_spice import parse_listing  # noqa: E402
+
+
+METRIC_RE = re.compile(
+    r"^\s*(normalized_derivative|normalized_dc_residual):\s*(\S+)\s*$",
+    re.MULTILINE,
+)
+PTA_OPTIONS = (
+    "--pta-option",
+    "initial-step=1",
+    "--pta-option",
+    "maximum-step=1k",
+    "--pta-option",
+    "maximum-steps=20000",
+    "--pta-option",
+    "derivative-tolerance=1e-3",
+    "--pta-option",
+    "dc-residual-tolerance=1e-3",
+)
+ABSOLUTE_TOLERANCE = {
+    "v(vdd)": 1.0e-6,
+    "v(q)": 1.0e-5,
+    "v(qb)": 1.0e-8,
+    "i(vdd)": 1.0e-10,
+}
+REPORT_HEADER = "SPICE Solver Report"
+
+
+def parse_arguments() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("simulator", type=Path)
+    parser.add_argument("netlist", type=Path)
+    parser.add_argument("reference", type=Path)
+    parser.add_argument(
+        "--output-root",
+        type=Path,
+        help="keep ordinary/force/fallback artifact bundles under this directory",
+    )
+    return parser.parse_args()
+
+
+def run(simulator: Path, *arguments: object) -> subprocess.CompletedProcess[str]:
+    try:
+        return subprocess.run(
+            [str(simulator), *map(str, arguments)],
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            check=False,
+            timeout=30,
+        )
+    except subprocess.TimeoutExpired as error:
+        raise RuntimeError(f"simulator timed out: {error.cmd}") from error
+
+
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise RuntimeError(message)
+
+
+def output_artifacts(output_root: Path, netlist: Path) -> dict[str, Path]:
+    stem = netlist.stem
+    case_directory = output_root / stem
+    return {
+        "listing": case_directory / f"{stem}.out",
+        "raw": case_directory / f"{stem}.raw",
+        "error": case_directory / f"{stem}.err",
+        "report": case_directory / f"{stem}.solve.txt",
+    }
+
+
+def check_solver_report(
+    report: Path,
+    status: str,
+    required_methods: tuple[str, ...],
+) -> str:
+    require(report.is_file(), f"solver report is missing: {report}")
+    text = report.read_text(errors="replace")
+    require(REPORT_HEADER in text, "solver report header is missing")
+    require(f"Status: {status}" in text, f"solver report status is not {status}")
+    require("Method path:" in text, "solver report method path is missing")
+    for method in required_methods:
+        require(method in text, f"solver report does not mention {method}")
+    return text
+
+
+def check_pta_diagnostics(stderr: str) -> None:
+    require("PTA diagnostics:" in stderr, "PTA diagnostics are missing")
+    require("converged: true" in stderr, "PTA did not report convergence")
+    require(
+        "status: PTA was not invoked" not in stderr,
+        "fallback returned without invoking PTA",
+    )
+
+    metrics = {name: float(value) for name, value in METRIC_RE.findall(stderr)}
+    require(
+        set(metrics) == {"normalized_derivative", "normalized_dc_residual"},
+        f"incomplete PTA convergence metrics: {metrics}",
+    )
+    require(
+        all(math.isfinite(value) and 0.0 <= value < 1.0e-3
+            for value in metrics.values()),
+        f"invalid or unconverged PTA metrics: {metrics}",
+    )
+
+    require("attempt_trace:" in stderr, "PTA attempt trace is missing")
+    attempt_lines = [
+        line.strip()
+        for line in stderr.splitlines()
+        if "pseudo_time=[" in line
+    ]
+    require(attempt_lines, "PTA attempt trace contains no attempts")
+    require(
+        any("order=BE" in line for line in attempt_lines) and
+        any("order=BDF2" in line for line in attempt_lines),
+        "PTA attempt trace does not distinguish BE and BDF2 attempts",
+    )
+    for field in (
+        "step=",
+        "order=",
+        "newton_iterations=",
+        "backtracking_steps=",
+        "line_search_evaluations=",
+        "trust_region_trials=",
+        "trust_region_rejected_steps=",
+        "trust_region_radius=",
+        "newton_normalized_update=",
+        "newton_normalized_residual=",
+        "normalized_derivative=",
+        "normalized_dc_residual=",
+        "decision=",
+    ):
+        require(
+            all(field in line for line in attempt_lines),
+            f"PTA attempt trace omits {field}",
+        )
+
+
+def check_operating_point(listing: Path, reference: Path) -> None:
+    # The committed reference was independently generated by ngspice 46 and
+    # represents the q-high stable branch of this intentionally multistable latch.
+    expected_points = parse_listing(reference, "op")
+    actual_points = parse_listing(listing, "op")
+    require(sorted(expected_points) == [0], "reference must contain one OP point")
+    require(sorted(actual_points) == [0], "listing must contain one OP point")
+
+    expected = expected_points[0]
+    actual = actual_points[0]
+    require(set(actual) == set(expected), f"unexpected OP variables: {sorted(actual)}")
+    for variable, expected_value in expected.items():
+        actual_value = actual[variable]
+        error = abs(actual_value - expected_value)
+        require(
+            math.isfinite(actual_value) and
+            error <= ABSOLUTE_TOLERANCE[variable],
+            f"{variable}: expected {expected_value:.12e}, "
+            f"got {actual_value:.12e}, absolute error {error:.3e}",
+        )
+
+
+def main() -> int:
+    arguments = parse_arguments()
+    simulator = arguments.simulator.resolve()
+    netlist = arguments.netlist.resolve()
+    reference = arguments.reference.resolve()
+
+    require(simulator.is_file(), f"simulator not found: {simulator}")
+    require(netlist.is_file(), f"netlist not found: {netlist}")
+    require(reference.is_file(), f"reference not found: {reference}")
+
+    root_context = (
+        nullcontext(arguments.output_root.resolve())
+        if arguments.output_root
+        else tempfile.TemporaryDirectory(prefix="pta-hard-op-")
+    )
+    with root_context as directory:
+        root = Path(directory)
+        root.mkdir(parents=True, exist_ok=True)
+
+        legacy_root = root / "legacy-ordinary"
+        ordinary = run(
+            simulator,
+            "--pta",
+            "disabled",
+            "--op-option",
+            "newton.trust-region-enabled=false",
+            "--op-option",
+            "newton.maximum-backtracks=0",
+            "-b",
+            "--output-root",
+            legacy_root,
+            netlist,
+        )
+        require(
+            ordinary.returncode == 1,
+            f"legacy ordinary OP unexpectedly returned {ordinary.returncode}: "
+            f"{ordinary.stderr}{ordinary.stdout}",
+        )
+        require(not ordinary.stdout, "failed legacy batch OP wrote to stdout")
+        ordinary_artifacts = output_artifacts(legacy_root, netlist)
+        ordinary_error = ordinary.stderr
+        if ordinary_artifacts["error"].is_file():
+            ordinary_error += ordinary_artifacts["error"].read_text(errors="replace")
+        require(
+            "Operating point analysis failed" in ordinary_error,
+            f"legacy ordinary OP failure diagnostic is missing: {ordinary_error}",
+        )
+        check_solver_report(
+            ordinary_artifacts["report"],
+            "failed",
+            ("direct Newton", "source stepping"),
+        )
+
+        for mode in ("force", "fallback"):
+            mode_root = root / mode
+            fallback_options = (
+                (
+                    "--op-option",
+                    "newton.trust-region-enabled=false",
+                )
+                if mode == "fallback"
+                else ()
+            )
+            result = run(
+                simulator,
+                "--pta",
+                mode,
+                *fallback_options,
+                "--op-option",
+                "newton.maximum-backtracks=0",
+                "--pta-diagnostics",
+                *PTA_OPTIONS,
+                "-b",
+                "--output-root",
+                mode_root,
+                netlist,
+            )
+            require(
+                result.returncode == 0,
+                f"{mode} PTA failed ({result.returncode}): "
+                f"{result.stderr}{result.stdout}",
+            )
+            require(not result.stdout, f"{mode} PTA wrote listing output in batch mode")
+
+            artifacts = output_artifacts(mode_root, netlist)
+            for name, artifact in artifacts.items():
+                require(artifact.is_file(), f"{mode} PTA {name} is missing: {artifact}")
+
+            report_text = check_solver_report(
+                artifacts["report"],
+                "succeeded",
+                (
+                    ("adaptive PTA",)
+                    if mode == "force"
+                    else ("direct Newton", "source stepping", "adaptive PTA")
+                ),
+            )
+            diagnostics_text = (
+                result.stderr
+                + artifacts["error"].read_text(errors="replace")
+                + report_text
+            )
+            check_pta_diagnostics(diagnostics_text)
+            check_operating_point(artifacts["listing"], reference)
+
+    print("PASS PTA hard OP: legacy ordinary fails; force and fallback converge")
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        raise SystemExit(main())
+    except (OSError, RuntimeError, ValueError) as error:
+        print(f"FAIL PTA hard OP: {error}", file=sys.stderr)
+        raise SystemExit(1)

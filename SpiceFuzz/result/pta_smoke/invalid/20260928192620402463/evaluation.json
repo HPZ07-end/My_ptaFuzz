@@ -1,0 +1,7 @@
+{
+  "reason": "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192620402463.cir:8: parse error: Unknown BJT model: 0\n",
+  "reward": {
+    "total": -4.0
+  },
+  "stage": "invalid"
+}

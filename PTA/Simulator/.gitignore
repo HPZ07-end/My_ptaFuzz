@@ -1,0 +1,14 @@
+spice
+build/
+tests/output/
+tests/.build/
+tests/private
+
+.vscode/
+
+**/.DS_Store
+**/__pycache__/
+
+tmp/
+
+/config.json

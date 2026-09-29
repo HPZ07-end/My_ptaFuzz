@@ -1,0 +1,167 @@
+SPICE Solver Report
+===================
+Input netlist: E:\AAA_Update\Science\spiceAgent-SRT\V1.0\SpiceFuzz\netlist_pta_directed_10m\20260928193454840097.cir
+Circuit title: SpiceFuzz generated DC operating-point netlist
+Configuration source: built-in defaults
+Status: succeeded
+Status detail: all requested analyses converged and artifacts were written
+Total wall time: 2.0568000000e-02 s
+
+Requested analyses:
+  Operating point: yes
+  Transient: no
+  Pseudo-transient control card: no
+
+Circuit characteristics:
+  Primitive devices: 43
+  Nonlinear devices: 13
+  Models: 2
+  Non-ground nodes: 12
+  MNA unknowns: 13
+  MNA structural nonzeros: 52
+  MNA structural density: 3.0769230769e-01
+  PTA pseudo-devices: 0
+  Device mix:
+    Resistor: 29
+    Voltage Source: 1
+    Diode: 4
+    BJT: 9
+  Current solution node-voltage range: [5.2559653336e-02, 1.8000000000e+00] V
+  Largest absolute solution component: 1.8000000000e+00 (v(in))
+  Largest absolute branch current: 1.6748500551e-03 A (VDRV)
+
+Solver method history:
+
+Operating-point attempt 1: ordinary operating point
+  Result: succeeded
+  Method path: direct Newton failed -> source stepping succeeded
+  Total iterations: 39
+  Final solver attempt iterations: 5
+  Total damped updates: 1
+  Final update infinity norm: 1.9683144004e-12
+  CPU time: 1.0000000000e-03 s
+  Wall time: 5.6810000000e-04 s
+
+  Direct Newton-Raphson:
+    Result: failed
+    Iterations: 3 / 1000
+    Damped updates: 1
+    Residual backtracking reductions: 0
+    Line-search residual evaluations: 0
+    Non-monotone line-search fallbacks: 0
+    Trust-region retries exhausted: yes
+    PTA trust-region exhaustion recovery: no (iterations 0)
+    Trust-region trials: 11
+    Trust-region rejected trials: 9
+    Trust-region radius reductions/expansions: 9 / 1
+    Initial/final trust-region radius: 1.0000000000e+09 / 7.6293945312e+03
+    Final update infinity norm: 8.0000000000e-01
+    Final Newton step scale: 1.0000000000e+00
+    Legacy absolute tolerance: 1.0000000000e-09
+    Final normalized update: 8.0000000000e+08
+    Final normalized residual: 8.3530720900e+01
+    Last trust-region agreement ratio: -4.5029469482e+03
+    CPU time: 1.0000000000e-03 s
+    Wall time: 1.2040000000e-04 s
+    Failure reason: Newton-Raphson trust-region retries exhausted
+
+  Source stepping:
+    Accepted steps: 6
+    Rejected steps: 1
+    Final source scale: 1.0000000000e+00
+    Configured minimum source step: 1.0000000000e-04
+    Attempt trace:
+      #1 accepted_scale=0.0000000000e+00 step=1.0000000000e-01 target_scale=1.0000000000e-01 result=accepted iterations=3 damped=0 final_delta=3.0531133177e-16 normalized_update=3.0531133177e-07 normalized_residual=7.6302215780e-11 status="accepted"
+      #2 accepted_scale=1.0000000000e-01 step=1.5000000000e-01 target_scale=2.5000000000e-01 result=accepted iterations=4 damped=0 final_delta=3.8857805862e-16 normalized_update=3.8857805862e-07 normalized_residual=7.7789388293e-10 status="accepted"
+      #3 accepted_scale=2.5000000000e-01 step=2.2500000000e-01 target_scale=4.7500000000e-01 result=rejected iterations=2 damped=0 final_delta=4.0500000000e-01 normalized_update=4.0500000000e+08 normalized_residual=5.2774864156e+04 status="rejected" reason="Newton-Raphson trust-region retries exhausted"
+      #4 accepted_scale=2.5000000000e-01 step=1.1250000000e-01 target_scale=3.6250000000e-01 result=accepted iterations=8 damped=0 final_delta=8.9073193266e-13 normalized_update=8.9073193266e-04 normalized_residual=9.0801931946e-10 status="accepted"
+      #5 accepted_scale=3.6250000000e-01 step=1.6875000000e-01 target_scale=5.3125000000e-01 result=accepted iterations=8 damped=0 final_delta=4.9737991503e-14 normalized_update=4.9737991503e-05 normalized_residual=5.2041704279e-09 status="accepted"
+      #6 accepted_scale=5.3125000000e-01 step=2.5000000000e-01 target_scale=7.8125000000e-01 result=accepted iterations=6 damped=0 final_delta=2.1317392296e-12 normalized_update=2.1317392296e-03 normalized_residual=1.0842021725e-09 status="accepted"
+      #7 accepted_scale=7.8125000000e-01 step=2.1875000000e-01 target_scale=1.0000000000e+00 result=accepted iterations=5 damped=0 final_delta=1.9683144004e-12 normalized_update=1.9683144004e-03 normalized_residual=8.6736173799e-10 status="accepted"
+
+Effective solver configuration:
+  op.newton.maximum_iterations: 1000
+  op.newton.tolerance (legacy): 1.0000000000e-09
+  op.newton.relative_tolerance: 0.0000000000e+00
+  op.newton.voltage_absolute_tolerance: 1.0000000000e-09
+  op.newton.current_absolute_tolerance: 1.0000000000e-09
+  op.newton.normalized_update_tolerance: 1.0000000000e+00
+  op.newton.normalized_residual_tolerance: 1.0000000000e+00
+  op.newton.maximum_backtracks: 8
+  op.newton.backtrack_scale: 5.0000000000e-01
+  op.newton.sufficient_decrease: 1.0000000000e-04
+  op.newton.maximum_solution_step: 1.0000000000e+00
+  op.newton.maximum_consecutive_non_monotone_steps: 1
+  op.newton.maximum_non_monotone_residual_growth: 4.0000000000e+00
+  op.newton.trust_region_enabled: yes
+  op.newton.trust_region_initial_radius: 0.0000000000e+00
+  op.newton.trust_region_minimum_radius: 1.0000000000e-06
+  op.newton.trust_region_maximum_radius: 1.0000000000e+12
+  op.newton.maximum_trust_region_retries: 8
+  op.newton.trust_region_acceptance_ratio: 1.0000000000e-01
+  op.newton.trust_region_shrink_threshold: 2.5000000000e-01
+  op.newton.trust_region_grow_threshold: 7.5000000000e-01
+  op.newton.trust_region_shrink_factor: 2.5000000000e-01
+  op.newton.trust_region_grow_factor: 2.0000000000e+00
+  op.newton.trust_region_boundary_fraction: 8.0000000000e-01
+  op.source_stepping.enabled: yes
+  op.source_stepping.initial_step: 1.0000000000e-01
+  op.source_stepping.maximum_step: 2.5000000000e-01
+  op.source_stepping.minimum_step: 1.0000000000e-04
+  op.source_stepping.growth_factor: 1.5000000000e+00
+  op.source_stepping.failure_scale: 5.0000000000e-01
+  pta.newton.maximum_iterations: 1000
+  pta.newton.tolerance (legacy): 1.0000000000e-09
+  pta.newton.relative_tolerance: 0.0000000000e+00
+  pta.newton.voltage_absolute_tolerance: 1.0000000000e-09
+  pta.newton.current_absolute_tolerance: 1.0000000000e-09
+  pta.newton.normalized_update_tolerance: 1.0000000000e+00
+  pta.newton.normalized_residual_tolerance: 1.0000000000e+00
+  pta.newton.maximum_backtracks: 8
+  pta.newton.backtrack_scale: 5.0000000000e-01
+  pta.newton.sufficient_decrease: 1.0000000000e-04
+  pta.newton.maximum_solution_step: 1.0000000000e+00
+  pta.newton.maximum_consecutive_non_monotone_steps: 2147483647
+  pta.newton.maximum_non_monotone_residual_growth: 1.7976931349e+308
+  pta.newton.trust_region_enabled: yes
+  pta.newton.trust_region_initial_radius: 1.0000000000e+08
+  pta.newton.trust_region_minimum_radius: 1.0000000000e-06
+  pta.newton.trust_region_maximum_radius: 1.0000000000e+12
+  pta.newton.maximum_trust_region_retries: 8
+  pta.newton.trust_region_acceptance_ratio: 1.0000000000e-01
+  pta.newton.trust_region_shrink_threshold: 2.5000000000e-01
+  pta.newton.trust_region_grow_threshold: 7.5000000000e-01
+  pta.newton.trust_region_shrink_factor: 2.5000000000e-01
+  pta.newton.trust_region_grow_factor: 2.0000000000e+00
+  pta.newton.trust_region_boundary_fraction: 8.0000000000e-01
+  pta.mode: disabled
+  pta.steps (minimum/initial/maximum): 1.0000000000e-15 / 1.0000000000e-09 / 1.0000000000e+03
+  pta.maximum_steps: 10000
+  pta.derivative_tolerance: 1.0000000000e+00
+  pta.derivative_relative_tolerance: 1.0000000000e-04
+  pta.derivative_voltage_absolute_tolerance: 1.0000000000e-06
+  pta.derivative_current_absolute_tolerance: 1.0000000000e-09
+  pta.dc_residual_tolerance: 1.0000000000e+00
+  pta.dc_residual_relative_tolerance: 1.0000000000e-04
+  pta.dc_voltage_absolute_tolerance: 1.0000000000e-06
+  pta.dc_current_absolute_tolerance: 1.0000000000e-09
+  pta.node_capacitance (minimum/initial/maximum): 1.0000000000e-18 / 1.0000000000e-12 / 1.0000000000e-03
+  pta.current_source_capacitance: 1.0000000000e-12
+  pta.voltage_source_inductance: 1.0000000000e-09
+  pta.compound_time_constant: 0.0000000000e+00
+  pta.compound_initial_resistance: 1.0000000000e+00
+  pta.compound_initial_conductance: 1.0000000000e+00
+  pta.source_ramp_time: 0.0000000000e+00
+  pta.initial_mos_vgs: null
+  pta.initial_bjt_vbe: null
+  pta.failed/successful_step_scale: 5.0000000000e-01 / 2.0000000000e+00
+  pta.capacitance_grow_scale: 2.0000000000e+00
+  pta.oscillation_scale (small/medium/heavy): 9.0000000000e-01 / 7.0000000000e-01 / 5.0000000000e-01
+  pta.oscillation_ratio (medium/heavy): 5.0000000000e-01 / 1.0000000000e+00
+  pta.include_mos_bulk: no
+  pta.include_diodes: no
+
+Convergence and tuning observations:
+  - Direct Newton did not converge, but source stepping recovered the operating point. Preserve the recovery method while changing tolerances or model parameters.
+  - Source stepping rejected 1 trial(s). A smaller initial/maximum source step or a smaller minimum step can make continuation more gradual.
+  - Change one numerical parameter at a time and confirm that voltages, currents, conservation laws, and expected operating regions remain physically plausible.

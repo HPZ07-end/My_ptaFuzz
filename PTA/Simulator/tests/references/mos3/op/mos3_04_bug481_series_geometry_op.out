@@ -1,0 +1,9 @@
+Circuit: Official ngspice bug 481 MOS3 series-geometry DC adaptation
+
+Operating Point
+No. of Data Rows : 1
+
+--------------------------------------------------------------------------------
+Index   v(drain)   v(source)   vsense#branch
+--------------------------------------------------------------------------------
+       0   1.371775708706863e+00   5.000000000000000e+00   6.858878543534642e-05

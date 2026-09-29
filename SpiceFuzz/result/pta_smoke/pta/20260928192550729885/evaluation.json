@@ -1,0 +1,97 @@
+{
+  "baseline": "pta_ordinary",
+  "baseline_failed": true,
+  "full_pta_required": true,
+  "ngspice": null,
+  "profiles": {
+    "full_fallback": {
+      "code": 0,
+      "command": [
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\PTA\\Simulator\\spice.exe",
+        "--pta",
+        "fallback",
+        "-b",
+        "--output-root",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\test\\pta_smoke\\full_fallback",
+        "--pta-diagnostics",
+        "--op-option",
+        "source-stepping.enabled=true",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192550729885.cir"
+      ],
+      "profile": "full_fallback",
+      "returncode": 0,
+      "stage": "pta",
+      "stderr": "s=0 trust_region_radius=1.0000000000e+08 newton_normalized_update=5.8617577459e-01 newton_normalized_residual=5.5511151231e-08 normalized_derivative=9.5097763733e+02 normalized_dc_residual=5.2164214668e+01 decision=accepted capacitance_reductions=1 reduction_reason=node-voltage-sign-reversal reduction_severity=(small=1,medium=0,heavy=0) status=\"accepted\"\n    #187 pseudo_time=[4.1912689209e-09, 8.1912689209e-09] step=4.0000000000e-09 order=BDF2 source_scale=1.0000000000e+00 newton=converged newton_iterations=4 damped_steps=0 backtracking_steps=0 line_search_evaluations=0 non_monotone_step_fallbacks=0 trust_region_retries_exhausted=no trust_region_exhaustion_recovery=no trust_region_exhaustion_recovery_iterations=0 trust_region_trials=4 trust_region_rejected_steps=0 trust_region_radius=1.0000000000e+08 newton_normalized_update=3.0442315335e-04 newton_normalized_residual=6.9388939039e-09 normalized_derivative=9.6604051045e+02 normalized_dc_residual=3.6069664695e+01 decision=accepted capacitance_reductions=1 reduction_reason=node-voltage-sign-reversal reduction_severity=(small=1,medium=0,heavy=0) status=\"accepted\"\n    #188 pseudo_time=[8.1912689209e-09, 1.6191268921e-08] step=8.0000000000e-09 order=BDF2 source_scale=1.0000000000e+00 newton=converged newton_iterations=3 damped_steps=0 backtracking_steps=0 line_search_evaluations=0 non_monotone_step_fallbacks=0 trust_region_retries_exhausted=no trust_region_exhaustion_recovery=no trust_region_exhaustion_recovery_iterations=0 trust_region_trials=3 trust_region_rejected_steps=0 trust_region_radius=1.0000000000e+08 newton_normalized_update=2.3056001552e-02 newton_normalized_residual=8.8817841970e-07 normalized_derivative=1.6236557979e+02 normalized_dc_residual=3.4253136645e+00 decision=accepted capacitance_reductions=3 reduction_reason=node-voltage-sign-reversal reduction_severity=(small=3,medium=0,heavy=0) status=\"accepted\"\n    #189 pseudo_time=[1.6191268921e-08, 3.2191268921e-08] step=1.6000000000e-08 order=BDF2 source_scale=1.0000000000e+00 newton=converged newton_iterations=3 damped_steps=0 backtracking_steps=0 line_search_evaluations=0 non_monotone_step_fallbacks=0 trust_region_retries_exhausted=no trust_region_exhaustion_recovery=no trust_region_exhaustion_recovery_iterations=0 trust_region_trials=3 trust_region_rejected_steps=0 trust_region_radius=1.0000000000e+08 newton_normalized_update=2.3203661215e-04 newton_normalized_residual=1.1102230246e-07 normalized_derivative=3.5096016067e+01 normalized_dc_residual=3.2276687148e-01 decision=accepted status=\"accepted\"\n    #190 pseudo_time=[3.2191268921e-08, 6.4191268921e-08] step=3.2000000000e-08 order=BDF2 source_scale=1.0000000000e+00 newton=converged newton_iterations=3 damped_steps=0 backtracking_steps=0 line_search_evaluations=0 non_monotone_step_fallbacks=0 trust_region_retries_exhausted=no trust_region_exhaustion_recovery=no trust_region_exhaustion_recovery_iterations=0 trust_region_trials=3 trust_region_rejected_steps=0 trust_region_radius=1.0000000000e+08 newton_normalized_update=6.6613381478e-07 newton_normalized_residual=5.5511151231e-08 normalized_derivative=5.1733984485e+00 normalized_dc_residual=2.4117947706e-02 decision=accepted capacitance_reductions=4 reduction_reason=node-voltage-sign-reversal reduction_severity=(small=4,medium=0,heavy=0) status=\"accepted\"\n    #191 pseudo_time=[6.4191268921e-08, 1.2819126892e-07] step=6.4000000000e-08 order=BDF2 source_scale=1.0000000000e+00 newton=converged newton_iterations=2 damped_steps=0 backtracking_steps=0 line_search_evaluations=0 non_monotone_step_fallbacks=0 trust_region_retries_exhausted=no trust_region_exhaustion_recovery=no trust_region_exhaustion_recovery_iterations=0 trust_region_trials=2 trust_region_rejected_steps=0 trust_region_radius=1.0000000000e+08 newton_normalized_update=5.2244875093e-02 newton_normalized_residual=2.2768245622e-09 normalized_derivative=3.3597051797e-01 normalized_dc_residual=6.9985298116e-04 decision=steady-state status=\"steady state converged\"\n",
+      "stdout": ""
+    },
+    "nr_only": {
+      "code": 1,
+      "command": [
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\PTA\\Simulator\\spice.exe",
+        "--pta",
+        "disabled",
+        "-b",
+        "--output-root",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\test\\pta_smoke\\nr_only",
+        "--op-option",
+        "source-stepping.enabled=false",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192550729885.cir"
+      ],
+      "profile": "nr_only",
+      "returncode": 1,
+      "stage": "nr",
+      "stderr": "Operating point analysis failed <E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192550729885.cir>\n",
+      "stdout": ""
+    },
+    "nr_pta": {
+      "code": 0,
+      "command": [
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\PTA\\Simulator\\spice.exe",
+        "--pta",
+        "fallback",
+        "-b",
+        "--output-root",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\test\\pta_smoke\\nr_pta",
+        "--pta-diagnostics",
+        "--op-option",
+        "source-stepping.enabled=false",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192550729885.cir"
+      ],
+      "profile": "nr_pta",
+      "returncode": 0,
+      "stage": "pta",
+      "stderr": "s=0 trust_region_radius=1.0000000000e+08 newton_normalized_update=5.8617577459e-01 newton_normalized_residual=5.5511151231e-08 normalized_derivative=9.5097763733e+02 normalized_dc_residual=5.2164214668e+01 decision=accepted capacitance_reductions=1 reduction_reason=node-voltage-sign-reversal reduction_severity=(small=1,medium=0,heavy=0) status=\"accepted\"\n    #187 pseudo_time=[4.1912689209e-09, 8.1912689209e-09] step=4.0000000000e-09 order=BDF2 source_scale=1.0000000000e+00 newton=converged newton_iterations=4 damped_steps=0 backtracking_steps=0 line_search_evaluations=0 non_monotone_step_fallbacks=0 trust_region_retries_exhausted=no trust_region_exhaustion_recovery=no trust_region_exhaustion_recovery_iterations=0 trust_region_trials=4 trust_region_rejected_steps=0 trust_region_radius=1.0000000000e+08 newton_normalized_update=3.0442315335e-04 newton_normalized_residual=6.9388939039e-09 normalized_derivative=9.6604051045e+02 normalized_dc_residual=3.6069664695e+01 decision=accepted capacitance_reductions=1 reduction_reason=node-voltage-sign-reversal reduction_severity=(small=1,medium=0,heavy=0) status=\"accepted\"\n    #188 pseudo_time=[8.1912689209e-09, 1.6191268921e-08] step=8.0000000000e-09 order=BDF2 source_scale=1.0000000000e+00 newton=converged newton_iterations=3 damped_steps=0 backtracking_steps=0 line_search_evaluations=0 non_monotone_step_fallbacks=0 trust_region_retries_exhausted=no trust_region_exhaustion_recovery=no trust_region_exhaustion_recovery_iterations=0 trust_region_trials=3 trust_region_rejected_steps=0 trust_region_radius=1.0000000000e+08 newton_normalized_update=2.3056001552e-02 newton_normalized_residual=8.8817841970e-07 normalized_derivative=1.6236557979e+02 normalized_dc_residual=3.4253136645e+00 decision=accepted capacitance_reductions=3 reduction_reason=node-voltage-sign-reversal reduction_severity=(small=3,medium=0,heavy=0) status=\"accepted\"\n    #189 pseudo_time=[1.6191268921e-08, 3.2191268921e-08] step=1.6000000000e-08 order=BDF2 source_scale=1.0000000000e+00 newton=converged newton_iterations=3 damped_steps=0 backtracking_steps=0 line_search_evaluations=0 non_monotone_step_fallbacks=0 trust_region_retries_exhausted=no trust_region_exhaustion_recovery=no trust_region_exhaustion_recovery_iterations=0 trust_region_trials=3 trust_region_rejected_steps=0 trust_region_radius=1.0000000000e+08 newton_normalized_update=2.3203661215e-04 newton_normalized_residual=1.1102230246e-07 normalized_derivative=3.5096016067e+01 normalized_dc_residual=3.2276687148e-01 decision=accepted status=\"accepted\"\n    #190 pseudo_time=[3.2191268921e-08, 6.4191268921e-08] step=3.2000000000e-08 order=BDF2 source_scale=1.0000000000e+00 newton=converged newton_iterations=3 damped_steps=0 backtracking_steps=0 line_search_evaluations=0 non_monotone_step_fallbacks=0 trust_region_retries_exhausted=no trust_region_exhaustion_recovery=no trust_region_exhaustion_recovery_iterations=0 trust_region_trials=3 trust_region_rejected_steps=0 trust_region_radius=1.0000000000e+08 newton_normalized_update=6.6613381478e-07 newton_normalized_residual=5.5511151231e-08 normalized_derivative=5.1733984485e+00 normalized_dc_residual=2.4117947706e-02 decision=accepted capacitance_reductions=4 reduction_reason=node-voltage-sign-reversal reduction_severity=(small=4,medium=0,heavy=0) status=\"accepted\"\n    #191 pseudo_time=[6.4191268921e-08, 1.2819126892e-07] step=6.4000000000e-08 order=BDF2 source_scale=1.0000000000e+00 newton=converged newton_iterations=2 damped_steps=0 backtracking_steps=0 line_search_evaluations=0 non_monotone_step_fallbacks=0 trust_region_retries_exhausted=no trust_region_exhaustion_recovery=no trust_region_exhaustion_recovery_iterations=0 trust_region_trials=2 trust_region_rejected_steps=0 trust_region_radius=1.0000000000e+08 newton_normalized_update=5.2244875093e-02 newton_normalized_residual=2.2768245622e-09 normalized_derivative=3.3597051797e-01 normalized_dc_residual=6.9985298116e-04 decision=steady-state status=\"steady state converged\"\n",
+      "stdout": ""
+    },
+    "nr_source": {
+      "code": 1,
+      "command": [
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\PTA\\Simulator\\spice.exe",
+        "--pta",
+        "disabled",
+        "-b",
+        "--output-root",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\test\\pta_smoke\\nr_source",
+        "--op-option",
+        "source-stepping.enabled=true",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192550729885.cir"
+      ],
+      "profile": "nr_source",
+      "returncode": 1,
+      "stage": "source_stepping",
+      "stderr": "Operating point analysis failed <E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192550729885.cir>\n",
+      "stdout": ""
+    }
+  },
+  "pta_succeeded": true,
+  "reward": {
+    "differential_bonus": 4.0,
+    "full_fallback_bonus": 2.0,
+    "novelty_bonus": 0.02188006482982172,
+    "nr_pta_bonus": 1.0,
+    "stage_reward": 5.0,
+    "timeout_penalty": -0.0,
+    "total": 12.021880064829821
+  },
+  "stage": "pta"
+}

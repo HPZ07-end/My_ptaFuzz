@@ -1,0 +1,97 @@
+{
+  "baseline": "pta_ordinary",
+  "baseline_failed": false,
+  "full_pta_required": false,
+  "ngspice": null,
+  "profiles": {
+    "full_fallback": {
+      "code": 0,
+      "command": [
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\PTA\\Simulator\\spice.exe",
+        "--pta",
+        "fallback",
+        "-b",
+        "--output-root",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\test\\pta_smoke\\full_fallback",
+        "--pta-diagnostics",
+        "--op-option",
+        "source-stepping.enabled=true",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192432403669.cir"
+      ],
+      "profile": "full_fallback",
+      "returncode": 0,
+      "stage": "source_stepping",
+      "stderr": "PTA diagnostics:\n  status: PTA was not invoked\n",
+      "stdout": ""
+    },
+    "nr_only": {
+      "code": 1,
+      "command": [
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\PTA\\Simulator\\spice.exe",
+        "--pta",
+        "disabled",
+        "-b",
+        "--output-root",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\test\\pta_smoke\\nr_only",
+        "--op-option",
+        "source-stepping.enabled=false",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192432403669.cir"
+      ],
+      "profile": "nr_only",
+      "returncode": 1,
+      "stage": "nr",
+      "stderr": "Operating point analysis failed <E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192432403669.cir>\n",
+      "stdout": ""
+    },
+    "nr_pta": {
+      "code": 1,
+      "command": [
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\PTA\\Simulator\\spice.exe",
+        "--pta",
+        "fallback",
+        "-b",
+        "--output-root",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\test\\pta_smoke\\nr_pta",
+        "--pta-diagnostics",
+        "--op-option",
+        "source-stepping.enabled=false",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192432403669.cir"
+      ],
+      "profile": "nr_pta",
+      "returncode": 1,
+      "stage": "pta",
+      "stderr": "Operating point analysis failed <E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192432403669.cir>\n",
+      "stdout": ""
+    },
+    "nr_source": {
+      "code": 0,
+      "command": [
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\PTA\\Simulator\\spice.exe",
+        "--pta",
+        "disabled",
+        "-b",
+        "--output-root",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\test\\pta_smoke\\nr_source",
+        "--op-option",
+        "source-stepping.enabled=true",
+        "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192432403669.cir"
+      ],
+      "profile": "nr_source",
+      "returncode": 0,
+      "stage": "source_stepping",
+      "stderr": "",
+      "stdout": ""
+    }
+  },
+  "pta_succeeded": false,
+  "reward": {
+    "differential_bonus": 0.0,
+    "full_fallback_bonus": 0.0,
+    "novelty_bonus": 0.018052516411378557,
+    "nr_pta_bonus": 0.0,
+    "stage_reward": 2.5,
+    "timeout_penalty": -0.0,
+    "total": 2.5180525164113785
+  },
+  "stage": "source_stepping"
+}

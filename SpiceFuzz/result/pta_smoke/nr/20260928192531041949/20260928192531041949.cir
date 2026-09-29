@@ -1,0 +1,17 @@
+SpiceFuzz generated DC operating-point netlist
+.model NMOD NMOS LEVEL=1 VTO=0.7 KP=200u LAMBDA=0.02
+.model PMOD PMOS LEVEL=1 VTO=-0.7 KP=100u LAMBDA=0.02
+.subckt LATCH q qb vdd
+MNQ q qb 0 0 NMOD W=10u L=1u
+MPQ q qb vdd vdd PMOD W=20u L=1u
+MNQB qb q 0 0 NMOD W=10u L=1u
+MPQB qb q vdd vdd PMOD W=20u L=1u
+.ends LATCH
+VDD vdd 0 DC 1.4
+XLAT q qb vdd LATCH
+RQ q 0 1g
+RQB qb 0 1g
+.ic V(q)=0.7 V(qb)=0.7
+.op
+.print op v(vdd) v(q) v(qb) i(VDD)
+.end

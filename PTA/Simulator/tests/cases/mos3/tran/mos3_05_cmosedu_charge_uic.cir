@@ -1,0 +1,16 @@
+Official ngspice CMOSEdu Level-3 PMOS charge-storage transient adaptation
+* Origin: examples/xspice/see/CMOSComparator/cmosedu_models.txt @ c76219a
+VDD vdd 0 5
+VG gate 0 0
+VSENSE vdd source 0
+MP1 out gate source vdd P_1u W=5u L=1u AD=10u AS=10u PD=14u PS=14u
+CLOAD out 0 20p
+.model P_1u PMOS LEVEL=3
++ TOX=200e-10 NSUB=1e17 GAMMA=0.6 PHI=0.7 VTO=-0.9 DELTA=0.1
++ UO=250 ETA=0 THETA=0.1 KP=40e-6 VMAX=5e4 KAPPA=1
++ RSH=0 NFS=1e12 TPG=-1 XJ=500e-9 LD=100e-9
++ CGDO=200e-12 CGSO=200e-12 CGBO=1e-10 CJ=400e-6 PB=1 MJ=0.5
++ CJSW=300e-12 MJSW=0.5
+.tran 1n 2n uic
+.print tran v(out) i(vsense) i(vg)
+.end

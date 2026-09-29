@@ -1,0 +1,38 @@
+name: Private netlist verification
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: private-netlists-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  private-netlists:
+    name: Private netlist convergence
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes libeigen3-dev
+
+      - name: Run private netlist suite
+        run: make -j2 test-private
+
+      - name: Upload private-netlist artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: private-netlist-artifacts
+          path: tests/output/private/
+          if-no-files-found: ignore
+          retention-days: 14

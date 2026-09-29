@@ -1,0 +1,60 @@
+OP level 3 case 10: rlc filter bank
+* Stress-mesh topology family adapted from Xyce Regression RLC/filter test families; primitive-only subset: https://github.com/Xyce/Xyce_Regression
+VDRV in 0 DC 2.5
+RCORE1 in lmid 68
+LCORE lmid out 120u
+CCORE out 0 22n
+RCORE2 out 0 1.8k
+RF001 out n003 180
+RG001 n003 0 13k
+CF001 n003 0 4n
+RB001 n003 in 8k
+LF001 n003 l004 50u
+RX001 l004 in 23k
+RX002 l004 in 24k
+RX003 l004 in 25k
+RF002 l004 n005 316
+RG002 n005 0 21k
+CF002 n005 0 12n
+RB002 n005 lmid 16k
+LF002 n005 l006 90u
+RX004 l006 in 31k
+RX005 l006 in 32k
+RX006 l006 in 33k
+RF003 l006 n007 452
+RG003 n007 0 29k
+CF003 n007 0 7n
+RB003 n007 n003 7k
+LF003 n007 l008 45u
+RX007 l008 in 39k
+RX008 l008 in 40k
+RX009 l008 in 41k
+RF004 l008 n009 265
+RG004 n009 0 14k
+CF004 n009 0 2n
+RB004 n009 n005 15k
+LF004 n009 l010 85u
+RX010 l010 in 18k
+RX011 l010 in 19k
+RX012 l010 in 20k
+RF005 l010 n011 401
+RG005 n011 0 22k
+CF005 n011 0 10n
+RB005 n011 n007 6k
+LF005 n011 l012 40u
+RX013 l012 in 26k
+RX014 l012 in 27k
+RX015 l012 in 28k
+RF006 l012 n013 214
+RG006 n013 0 30k
+CF006 n013 0 5n
+RB006 n013 n009 14k
+LF006 n013 l014 80u
+RX016 l014 in 34k
+RX017 l014 in 35k
+RX018 l014 in 36k
+RF007 l014 n015 350
+RG007 n015 0 15k
+.op
+.print op v(in) v(out) v(lmid) i(VDRV) i(LCORE)
+.end

@@ -1,0 +1,14 @@
+TRAN level 1 case 02: rl step section
+* Stress-mesh topology family adapted from Xyce Regression RLC/filter test families; primitive-only subset: https://github.com/Xyce/Xyce_Regression
+VDRV in 0 DC 3.3
+RCORE1 in lmid 68
+LCORE lmid out 120u
+CCORE out 0 22n
+RCORE2 out 0 1.8k
+RF001 out n003 180
+RG001 n003 0 13k
+CF001 n003 0 4n
+RB001 n003 in 8k
+.tran 2u 12u 0 1u UIC
+.print tran time v(in) v(out) v(lmid) i(VDRV) i(LCORE)
+.end

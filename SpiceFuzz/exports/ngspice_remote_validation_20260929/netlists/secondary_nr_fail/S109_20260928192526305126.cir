@@ -1,0 +1,19 @@
+SpiceFuzz generated DC operating-point netlist
+.model NPNMOD NPN IS=1e-16 BF=100 VAF=100
+.model PNPMOD PNP IS=1e-16 BF=100 VAF=100
+VDD vdd 0 DC 5
+VEE vee 0 DC -5
+RBIAS vdd q 100k
+RBQ q qb 10k
+RBQB qb q 10k
+RCQ vdd qc 10k
+RCQB vdd qcb 10k
+REQ qe vee 1k
+REQB qeb vee 1k
+QNQ qc q qe NPNMOD
+QNQB qcb qb qeb NPNMOD
+RQ q 0 1g
+RQB qb 0 1g
+.op
+.print op v(vdd) v(vee) v(q) v(qb) v(qc) v(qcb) v(qe) v(qeb) i(VDD) i(VEE)
+.end

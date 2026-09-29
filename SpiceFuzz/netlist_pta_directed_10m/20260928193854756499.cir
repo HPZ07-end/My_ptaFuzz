@@ -1,0 +1,53 @@
+SpiceFuzz generated DC operating-point netlist
+.model DMOD D IS=2e-14 N=1.03 GMIN=1e-10
+.model QNPN NPN IS=1e-15 BF=360 VAF=80
+VDRV in 0 DC 1.8
+RCORE1 in out 820
+DCORE1 out 0 DMOD
+DCORE2 0 out DMOD AREA=1.5
+RCORE2 out 0 47k
+RF001 out n002 180
+RG001 n002 0 130k
+RB001 n002 in 50k
+RB002 n002 in 80k
+RX001 n002 in 220k
+DF001 0 n002 DMOD AREA=3
+RX002 n002 in 240k
+RX003 n002 in 250k
+RF002 n002 n003 316
+RG002 n003 0 210k
+RB003 n003 out 130k
+RB004 n003 in 160k
+RX004 n003 in 300k
+DF002 0 n003 DMOD AREA=2
+RX005 n003 in 320k
+RX006 n003 in 330k
+RF003 n003 n004 452
+Q1 n003 n002 emit QNPN
+Q2 n002 n003 emit QNPN
+Q3 n004 n003 emit2 QNPN
+Q4 n002 n003 emit QNPN
+Q5 n003 n002 emit QNPN
+RCC1 n002 n005 62k
+RCC2 n003 n006 68k
+RBIAS1 n005 0 470k
+RBIAS2 n006 0 430k
+QSTK1 n004 n003 emit2 QNPN
+QSTK2 n004 n003 emit3 QNPN
+QSTK3 n004 n003 emit4 QNPN
+QSTK4 n004 n003 emit5 QNPN
+RSTK1 emit2 0 15k
+RSTK2 emit3 0 18k
+RSTK3 emit4 0 22k
+RSTK4 emit5 0 27k
+RE1 emit 0 12k
+RC1 n003 in 100k
+RC2 n002 in 100k
+XLOAD n004 emit2 loadcell
+.subckt loadcell c b
+QL n004 n003 emit2 QNPN
+RL emit2 0 33k
+.ends loadcell
+.op
+.print op v(in) v(out) v(n002) v(n003) v(n004) v(n005) v(n006) v(emit) v(emit2) v(emit3) v(emit4) v(emit5) i(VDRV)
+.end

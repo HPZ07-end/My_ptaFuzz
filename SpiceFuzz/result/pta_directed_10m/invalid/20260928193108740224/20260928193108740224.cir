@@ -1,0 +1,23 @@
+SpiceFuzz generated DC operating-point netlist
+VDRV in 0 DC 2.5
+RCORE1 in out 1.2k
+RCORE2 out 0 2.7k
+RF001 out n002 180
+RG001 n002 0 13k
+RB001 n002 in 5k
+RB002 n002 in 8k
+RX001 n002 in 22k
+RX002 n002 in 23k
+D001 n002 n003 DMOD
+D002 n003 n004 DMOD
+D003 n004 n005 DMOD
+D004 n005 n006 DMOD
+D005 n006 0 DMOD
+RD001 n003 0 47k
+RD002 n004 0 68k
+RD003 n005 0 91k
+RD004 n006 0 120k
+.model DMOD D (IS=1e-14 N=1.05 RS=12 CJO=2e-12 VJ=0.75)
+.op
+.print op v(in) v(out) v(n002) v(n003) v(n004) v(n005) v(n006) i(VDRV)
+.end

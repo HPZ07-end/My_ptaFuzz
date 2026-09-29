@@ -1,0 +1,34 @@
+OP level 2 case 07: bjt differential pair mesh
+* Stress-mesh topology family adapted from ngspice manual differential-pair and four-bit NAND-adder examples; primitive-only subset: https://ngspice.sourceforge.io/docs/ngspice-manual.pdf
+.model NPNMOD NPN IS=1e-16 BF=120 BR=2 NF=1 NR=1 GMIN=1e-10
+VCC vcc 0 DC 5
+VEE vee 0 DC -3
+VINP inp 0 DC 0.02
+VINN inn 0 DC 0
+QCORE1 out inp tail NPNMOD
+QCORE2 qc2 inn tail NPNMOD AREA=1.1
+RCORE1 vcc out 3.9k
+RCORE2 vcc qc2 3.9k
+RTAIL tail vee 1.8k
+ROUT out 0 220k
+RF001 tail n004 180
+RG001 n004 0 13k
+RB001 n004 qc2 5k
+RB002 n004 vcc 8k
+RX001 n004 vcc 22k
+RX002 n004 vcc 23k
+RX003 n004 vcc 24k
+QF001 n004 0 0 NPNMOD AREA=1
+RF002 n004 n005 316
+RG002 n005 0 21k
+RB003 n005 tail 13k
+RB004 n005 out 16k
+RX004 n005 vcc 30k
+RX005 n005 vcc 31k
+RX006 n005 vcc 32k
+QF002 n005 0 0 NPNMOD AREA=1
+RF003 n005 n006 452
+RG003 n006 0 29k
+.op
+.print op v(vcc) v(out) v(qc2) v(tail) i(VCC)
+.end

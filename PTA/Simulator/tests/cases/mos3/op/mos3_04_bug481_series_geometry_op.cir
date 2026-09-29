@@ -1,0 +1,17 @@
+Official ngspice bug 481 MOS3 series-geometry DC adaptation
+* Origin: https://sourceforge.net/p/ngspice/bugs/481/
+VSS vss 0 5
+VG gate 0 0
+VSENSE vss source 0
+M34 drain gate source source MPX1_LARGE L=7e-6 W=7e-6 AD=24e-12 AS=24e-12 PD=20e-6 PS=20e-6 NRD=850e-3 NRS=850e-3 M=1
+RLOAD drain 0 20k
+.model MPX1_LARGE PMOS LEVEL=3
++ TOX=3e-8 NSUB=3.43e15 GAMMA=0.36 VTO=-9.5e-1
++ UO=175 ETA=1 THETA=0.07 KP=1.8e-5 KAPPA=0.4
++ RSH=125 JS=6.2e-8 NFS=2.5e11 XJ=5e-7
++ LD=4e-7 WD=4e-7 XL=-3e-7 XW=-2.5e-6
++ CJ=1.435e-4 PB=0.649 MJ=0.5 CJSW=4.198e-10 MJSW=0.44
++ CGDO=0.46n CGSO=0.46n CGBO=0.92n
+.op
+.print op v(drain) v(source) i(vsense)
+.end

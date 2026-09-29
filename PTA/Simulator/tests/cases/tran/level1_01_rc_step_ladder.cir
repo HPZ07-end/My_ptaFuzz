@@ -1,0 +1,12 @@
+TRAN level 1 case 01: rc step ladder
+* Stress-mesh topology family adapted from ngspice manual RC/transmission-line examples; primitive-only subset: https://ngspice.sourceforge.io/docs/ngspice-manual.pdf
+VDRV in 0 DC 3.3
+RCORE1 in out 1.2k
+RCORE2 out 0 2.7k
+CCORE out 0 12n
+RF001 out n002 180
+RG001 n002 0 13k
+CF001 n002 0 4n
+.tran 1u 10u 0 1u UIC
+.print tran time v(in) v(out) i(VDRV)
+.end

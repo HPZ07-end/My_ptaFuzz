@@ -1,0 +1,7 @@
+{
+  "reason": "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192424180181.cir:5: parse error: .subckt pins must be unique non-ground nodes\n",
+  "reward": {
+    "total": -4.0
+  },
+  "stage": "invalid"
+}

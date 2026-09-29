@@ -1,0 +1,26 @@
+SpiceFuzz generated DC operating-point netlist
+VDRV in 0 DC 2.5
+RCORE1 in out 1.2k
+RCORE2 out 0 2.7k
+RF001 out n002 180
+RG001 n002 0 13k
+RB001 n002 in 5k
+RB002 n002 in 8k
+RX001 n002 in 22k
+RX002 n002 in 23k
+Q1 nc1 nb1 ne1 NPN1
+Q2 nc2 nb2 ne2 NPN1
+RC1 vcc nc1 1.5k
+RC2 vcc nc2 1.5k
+RE1 ne1 0 470
+RE2 ne2 0 470
+RB1 vcc nb1 47k
+RB2 vcc nb2 47k
+RCC1 nb1 nc2 22k
+RCC2 nb2 nc1 22k
+RCC3 nc1 nb2 33k
+VCC vcc 0 DC 5
+.model NPN1 NPN (IS=1e-15 BF=180 VAF=80)
+.op
+.print op v(nc1) v(nc2) v(nb1) v(nb2) v(ne1) v(ne2) i(VCC)
+.end

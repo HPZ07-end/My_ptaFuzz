@@ -1,0 +1,12 @@
+OP level 1 case 01: resistive bridge mesh
+* Stress-mesh topology family adapted from Qucs-S RCL ladder and LC-filter example families; primitive-only subset: https://github.com/ra3xdh/qucs_s
+VDRV in 0 DC 2.5
+RCORE1 in out 1.2k
+RCORE2 out 0 2.7k
+RF001 out n002 180
+RG001 n002 0 13k
+RB001 n002 in 5k
+RB002 n002 in 8k
+.op
+.print op v(in) v(out) i(VDRV)
+.end

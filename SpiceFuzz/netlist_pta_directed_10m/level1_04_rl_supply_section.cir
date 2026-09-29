@@ -1,0 +1,19 @@
+OP level 1 case 04: rl supply section
+* Stress-mesh topology family adapted from Xyce Regression RLC/filter test families; primitive-only subset: https://github.com/Xyce/Xyce_Regression
+VDRV in 0 DC 2.5
+RCORE1 in lmid 68
+LCORE lmid out 120u
+CCORE out 0 22n
+RCORE2 out 0 1.8k
+RF001 out n003 180
+RG001 n003 0 13k
+CF001 n003 0 4n
+RB001 n003 in 8k
+LF001 n003 l004 50u
+RX001 l004 in 23k
+RX002 l004 in 24k
+RX003 l004 in 25k
+RF002 l004 n005 316
+.op
+.print op v(in) v(out) v(lmid) i(VDRV) i(LCORE)
+.end

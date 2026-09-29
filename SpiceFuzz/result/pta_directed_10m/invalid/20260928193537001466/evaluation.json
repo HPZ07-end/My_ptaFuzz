@@ -1,0 +1,7 @@
+{
+  "reason": "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_directed_10m\\20260928193537001466.cir:4: parse error: Unsupported model type: MOS\n",
+  "reward": {
+    "total": -4.0
+  },
+  "stage": "invalid"
+}

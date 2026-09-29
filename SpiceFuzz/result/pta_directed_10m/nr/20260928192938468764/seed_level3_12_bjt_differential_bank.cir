@@ -1,0 +1,84 @@
+OP level 3 case 12: bjt differential bank
+* Stress-mesh topology family adapted from ngspice manual differential-pair and four-bit NAND-adder examples; primitive-only subset: https://ngspice.sourceforge.io/docs/ngspice-manual.pdf
+.model NPNMOD NPN IS=1e-16 BF=120 BR=2 NF=1 NR=1 GMIN=1e-10
+VCC vcc 0 DC 5
+VEE vee 0 DC -3
+VINP inp 0 DC 0.02
+VINN inn 0 DC 0
+QCORE1 out inp tail NPNMOD
+QCORE2 qc2 inn tail NPNMOD AREA=1.1
+RCORE1 vcc out 3.9k
+RCORE2 vcc qc2 3.9k
+RTAIL tail vee 1.8k
+ROUT out 0 220k
+RF001 tail n004 180
+RG001 n004 0 13k
+RB001 n004 qc2 5k
+RB002 n004 vcc 8k
+RX001 n004 vcc 22k
+RX002 n004 vcc 23k
+RX003 n004 vcc 24k
+QF001 n004 0 0 NPNMOD AREA=1
+RF002 n004 n005 316
+RG002 n005 0 21k
+RB003 n005 tail 13k
+RB004 n005 out 16k
+RX004 n005 vcc 30k
+RX005 n005 vcc 31k
+RX006 n005 vcc 32k
+QF002 n005 0 0 NPNMOD AREA=1
+RF003 n005 n006 452
+RG003 n006 0 29k
+RB005 n006 n004 10k
+RB006 n006 qc2 7k
+RX007 n006 vcc 38k
+RX008 n006 vcc 39k
+RX009 n006 vcc 40k
+QF003 n006 0 0 NPNMOD AREA=1
+RF004 n006 n007 265
+RG004 n007 0 14k
+RB007 n007 n005 7k
+RB008 n007 tail 15k
+RX010 n007 vcc 46k
+RX011 n007 vcc 18k
+RX012 n007 vcc 19k
+QF004 n007 0 0 NPNMOD AREA=1
+RF005 n007 n008 401
+RG005 n008 0 22k
+RB009 n008 n006 4k
+RB010 n008 n004 6k
+RX013 n008 vcc 25k
+RX014 n008 vcc 26k
+RX015 n008 vcc 27k
+QF005 n008 0 0 NPNMOD AREA=1
+RF006 n008 n009 214
+RG006 n009 0 30k
+RB011 n009 n007 12k
+RB012 n009 n005 14k
+RX016 n009 vcc 33k
+RX017 n009 vcc 34k
+RX018 n009 vcc 35k
+QF006 n009 0 0 NPNMOD AREA=1
+RF007 n009 n010 350
+RG007 n010 0 15k
+RB013 n010 n008 9k
+RB014 n010 n006 5k
+RX019 n010 vcc 41k
+RX020 n010 vcc 42k
+RX021 n010 vcc 43k
+QF007 n010 0 0 NPNMOD AREA=1
+RF008 n010 n011 486
+RG008 n011 0 23k
+RB015 n011 n009 6k
+RB016 n011 n007 13k
+RX022 n011 vcc 20k
+RX023 n011 vcc 21k
+RX024 n011 vcc 22k
+QF008 n011 0 0 NPNMOD AREA=1
+RF009 n011 n012 299
+RG009 n012 0 31k
+RB017 n012 n010 3k
+RB018 n012 n008 21k
+.op
+.print op v(vcc) v(out) v(qc2) v(tail) i(VCC)
+.end

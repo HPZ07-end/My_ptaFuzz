@@ -1,0 +1,3295 @@
+{
+  "created_at": "2026-09-29T08:27:43.6029788+08:00",
+  "selection": {
+    "priority": "PTA NR-only and source-stepping both failed; NR+PTA succeeded",
+    "secondary": "PTA NR-only failed; source-stepping and NR+PTA succeeded",
+    "control": "PTA NR-only succeeded; remote environment sanity check"
+  },
+  "counts": {
+    "priority": 22,
+    "secondary": 129,
+    "controls": 10,
+    "total": 161
+  },
+  "items": [
+    {
+      "exported_path": "netlists/priority_pta_required/P001_20260928192534945457.cir",
+      "tier": "priority_pta_required",
+      "sha256": "073189951D1312BA7D1A756826D433398445FBD36939232DB24FDA4B384A632E",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.01904296875,
+          "candidate": "result/pta_smoke/pta/20260928192534945457/20260928192534945457.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192534945457/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P002_20260928192450274718.cir",
+      "tier": "priority_pta_required",
+      "sha256": "09412BB8EDCBBBA14705A4DCC31DA1D3E948B4E74182555282381CDD8FB9CA4B",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.01782884310618,
+          "candidate": "result/pta_smoke/pta/20260928192450274718/20260928192450274718.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192450274718/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P003_20260928192529137225.cir",
+      "tier": "priority_pta_required",
+      "sha256": "15AE756BD3FDD7E989E3080E3087A3937E561405EDE6898542D04DA188F2E2E4",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.000802997858672,
+          "candidate": "result/pta_smoke/pta/20260928192529137225/20260928192529137225.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192529137225/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P004_20260928192615348029.cir",
+      "tier": "priority_pta_required",
+      "sha256": "2C3EA80D3D222F11F27D820188EFDDAA8DC6193FA22868265DA8924EA72FB0F1",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.008675078864353,
+          "candidate": "result/pta_smoke/pta/20260928192615348029/20260928192615348029.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192615348029/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P005_20260928192402576183.cir",
+      "tier": "priority_pta_required",
+      "sha256": "36D0FD2A0EB07F70A2F856A0127689A09D711B2E356567CEB371CF457126FDC7",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.073699421965317,
+          "candidate": "result/pta_smoke/pta/20260928192402576183/20260928192402576183.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192402576183/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P006_20260928192521517093.cir",
+      "tier": "priority_pta_required",
+      "sha256": "3E95F41B03B65FD77CA54C1342729A94CDF18286A7146075394A401AE5CAAD79",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.017857142857142,
+          "candidate": "result/pta_smoke/pta/20260928192521517093/20260928192521517093.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192521517093/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P007_20260928192438128192.cir",
+      "tier": "priority_pta_required",
+      "sha256": "4947E64AB53B5E4BA56EF06D67A55B0AE0212005B9476B9953B20058715F1EF6",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.04345088161209,
+          "candidate": "result/pta_smoke/pta/20260928192438128192/20260928192438128192.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192438128192/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P008_20260928192618205227.cir",
+      "tier": "priority_pta_required",
+      "sha256": "4E3EC7AA01F9A13EC165A04AF2949F3E36FB0942C4E9CBD9ECE2CBAD29E04A50",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.010813594232749,
+          "candidate": "result/pta_smoke/pta/20260928192618205227/20260928192618205227.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192618205227/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P009_20260928192625056492.cir",
+      "tier": "priority_pta_required",
+      "sha256": "6E733340C81723FF943B8C7C0D9AB83B4872413DA82071442096AFB8B51A51DB",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.002406417112299,
+          "candidate": "result/pta_smoke/pta/20260928192625056492/20260928192625056492.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192625056492/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P010_20260928192538264803.cir",
+      "tier": "priority_pta_required",
+      "sha256": "7669E48A8778367F0B58039768BED4EA644A495E79A1F00CA6BDC374BCAA52AA",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.02411825726141,
+          "candidate": "result/pta_smoke/pta/20260928192538264803/20260928192538264803.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192538264803/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P011_20260928192410912594.cir",
+      "tier": "priority_pta_required",
+      "sha256": "76A08E253097FFCB055D688C0754A86059B664C40A5C119ABD5A9E5CC081B241",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.00866050808314,
+          "candidate": "result/pta_smoke/pta/20260928192410912594/20260928192410912594.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192410912594/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P012_20260928192458216587.cir",
+      "tier": "priority_pta_required",
+      "sha256": "77CC48BCC9AEFD72C2A62378124780925C528BCAFD1F5D54091013C84104E402",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.053054662379422,
+          "candidate": "result/pta_smoke/pta/20260928192458216587/20260928192458216587.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192458216587/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.0,
+          "candidate": "result/pta_smoke/pta/20260928192517145996/20260928192517145996.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192517145996/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P013_20260928192610014764.cir",
+      "tier": "priority_pta_required",
+      "sha256": "7D50BCBF1F2FC292615B0E4A237B4269FB2D4951EC6D85D35D286B47FC33CFA7",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.247071742313324,
+          "candidate": "result/pta_smoke/pta/20260928192610014764/20260928192610014764.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192610014764/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P014_20260928192412975288.cir",
+      "tier": "priority_pta_required",
+      "sha256": "88D04BAC4C042E95C2CF0D1A427BCA2743D8DC2891FBF85487F359E6387E3EC9",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.04913294797688,
+          "candidate": "result/pta_smoke/pta/20260928192412975288/20260928192412975288.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192412975288/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P015_20260928192428260329.cir",
+      "tier": "priority_pta_required",
+      "sha256": "91992B69861331A6A1ACB54EA350929844C7C0CA3D242AD6F28183BE11E58BF4",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.019811320754718,
+          "candidate": "result/pta_smoke/pta/20260928192428260329/20260928192428260329.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192428260329/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P016_20260928192406793858.cir",
+      "tier": "priority_pta_required",
+      "sha256": "984122EAD37A364F188601D0E1A7CA3D6D217C636A8900F6023B2A5728B5FD0A",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.10016694490818,
+          "candidate": "result/pta_smoke/pta/20260928192406793858/20260928192406793858.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192406793858/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P017_20260928192448202248.cir",
+      "tier": "priority_pta_required",
+      "sha256": "9F8A4578F94DF12E6513A25E0F187DE2AE86E7D60706CB2B98923B435F34E317",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.017955801104973,
+          "candidate": "result/pta_smoke/pta/20260928192448202248/20260928192448202248.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192448202248/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P018_20260928192607606634.cir",
+      "tier": "priority_pta_required",
+      "sha256": "B74907DABE1CADEE9D3E90ECFE56C52D449EB40931CB06648871246638AEFC82",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.010306553911205,
+          "candidate": "result/pta_smoke/pta/20260928192607606634/20260928192607606634.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192607606634/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P019_20260928192634943125.cir",
+      "tier": "priority_pta_required",
+      "sha256": "C79F2C06CB0D23B7546C72E2AFD6A435C563C1ADE2820CF4594DC1BF0405AADC",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.003177966101696,
+          "candidate": "result/pta_smoke/pta/20260928192634943125/20260928192634943125.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192634943125/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P020_20260928192417960956.cir",
+      "tier": "priority_pta_required",
+      "sha256": "EA2E039A85C75B384C184A1DEFB6A36068968CBC65670C32AC5D2DFADEE3CABD",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.231833910034602,
+          "candidate": "result/pta_smoke/pta/20260928192417960956/20260928192417960956.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192417960956/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.0,
+          "candidate": "result/pta_smoke/pta/20260928192632620145/20260928192632620145.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192632620145/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P021_20260928192550729885.cir",
+      "tier": "priority_pta_required",
+      "sha256": "EE364B0AAEB97859EEA98C7AD4C06CFDC868B8E67127A367C3FF61DCE37C2B69",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.021880064829821,
+          "candidate": "result/pta_smoke/pta/20260928192550729885/20260928192550729885.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192550729885/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/priority_pta_required/P022_20260928192627986001.cir",
+      "tier": "priority_pta_required",
+      "sha256": "FE0AF222347A8530F7BAA20AAB4678726B5B8E91CAEA43AB7BDEFAD0E989B099",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "pta",
+          "reward": 12.02320359281437,
+          "candidate": "result/pta_smoke/pta/20260928192627986001/20260928192627986001.cir",
+          "evaluation": "result/pta_smoke/pta/20260928192627986001/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 1,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S001_20260928193559034011.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "026941EFF4A32BAE332B169AABA0C77C3168B396A5E53E48DE203BC1EA59A600",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.587039045553145,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193559034011/20260928193559034011.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193559034011/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S002_20260928193832358108.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "035AD048CEB5657AF990A4D120E30320E8541BF4EBA7EA57667E3DA519168CF3",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.7096069868995634,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193832358108/20260928193832358108.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193832358108/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S003_20260928193212366200.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "03C2285097E0C4FD93A58683315ABA19F1A6413152AFB2F342D64FF554D93074",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5260416666666665,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193212366200/20260928193212366200.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193212366200/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S004_20260928193149926356.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "03E23A5E97D4CD83C2BF00C0627071C31EB848F8BF4405EBEA4B64C56A1AFF59",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5114658273381294,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193149926356/20260928193149926356.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193149926356/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S005_20260928193234638614.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "07CE352D82149B67F81B71D17D1801DCAE9A19AD47CAE216D846B0DE29894896",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.8345323741007196,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193234638614/20260928193234638614.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193234638614/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S006_20260928192408844648.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "0807FC311E4F710018E87C54F511B007D8137A1C693CB5476DC80DAA2207B79E",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5305232558139537,
+          "candidate": "result/pta_smoke/source_stepping/20260928192408844648/20260928192408844648.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192408844648/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S007_20260928192336537299.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "0841B2966D1D0A3B466CEA9786741F64B2B9C907B3647068BBBB112E1DD7A50C",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.7341836734693876,
+          "candidate": "result/pta_smoke/source_stepping/20260928192336537299/20260928192336537299.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192336537299/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S008_20260928193255383894.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "0FC04AACA1AAAD2E8B42C598258A075889C5B2428E1A06A27BD4E968A3669CEA",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.6381019830028327,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193255383894/20260928193255383894.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193255383894/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S009_20260928193133388116.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "10208E05F4E09FBB51B45DF4C66B190187BB6D66DF2FFB0D53A30D46F3FB189F",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5576923076923075,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193133388116/20260928193133388116.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193133388116/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S010_20260928193635979488.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "107A4EF2200F32FF12C4EF89BBA5562C09C2A3B5C61907C5BB90A856E8FD3EC7",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.545509708737864,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193635979488/20260928193635979488.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193635979488/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S011_20260928193446121658.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "141103DB040C22BBDE68F580433378282A9EF92C6F034ADAA8758DC11D9C2FC0",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5720823798627004,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193446121658/20260928193446121658.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193446121658/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S012_20260928192622357624.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "141B66DABCC10C9A5BA1C9490610CDC3C674437D2C2F51B34CD24446EB0F26D2",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.506521739130435,
+          "candidate": "result/pta_smoke/source_stepping/20260928192622357624/20260928192622357624.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192622357624/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S013_20260928192552830935.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "1638F59D6F8E1B66E398F1F458CF8074C87C7EEC31D81D7AB4C2DBE7A4558E36",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.517590618336887,
+          "candidate": "result/pta_smoke/source_stepping/20260928192552830935/20260928192552830935.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192552830935/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S014_20260928193805969173.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "18540A7256246E9213E00E3D0D573D31B7ABCFF2BA558A97D4C0F02F8B787071",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.503504672897196,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193805969173/20260928193805969173.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193805969173/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S015_20260928193712418287.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "1AF47A1865CC0FAC66DEDC2190DC5E7999339F833A7E046352E86DC732F095B3",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5631578947368423,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193712418287/20260928193712418287.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193712418287/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S016_20260928193739136384.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "1B4F658BAD88AE9B1F25B7694086875A9BA738AEE65EA99A98C18B4F2FF02FE8",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5200140449438204,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193739136384/20260928193739136384.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193739136384/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S017_20260928193236183113.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "1C258BDD5D1D67690C0C80407C6FD9E3F7060CDE80EA5C6BD82FE2B5AF90FBBB",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5093085106382977,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193236183113/20260928193236183113.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193236183113/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S018_20260928193858180868.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "1C3F6DD9EDCD5AB5C98377BA489E9E98A52532199ED00EA9E27012CF179B6A20",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5123473181094,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193858180868/20260928193858180868.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193858180868/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S019_20260928193724280958.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "1E03B7CC1C0F72F126388F5A871C0C88F78098BD683C6365F7ED4F1323CAFFEF",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5588957055214725,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193724280958/20260928193724280958.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193724280958/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S020_20260928193700248442.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "1FBE6278829858ABD2F9C451AF320E35FA594E3D4A190ABDDF23F317A9FD21C0",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.518854748603352,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193700248442/20260928193700248442.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193700248442/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193709873459/20260928193709873459.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193709873459/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S021_20260928193814383761.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "20116B34106D806DE1AAE7E4195C27D44619B4FAEF49A0E08C499D7ABED70C23",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.500920245398773,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193814383761/20260928193814383761.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193814383761/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S022_20260928192354874536.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "216DB06F1E89341F68D634899A5C6D919E3657FD851F9C88DECF5E442C19A0DE",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.6218274111675126,
+          "candidate": "result/pta_smoke/source_stepping/20260928192354874536/20260928192354874536.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192354874536/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S023_20260928193428498948.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "21E26C45A2F6050A169BBF0797622980424EDF4B140FEDF85A7906D474EC10AB",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5628781331028523,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193428498948/20260928193428498948.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193428498948/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S024_20260928192358564396.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "22095702B9843BF05156BA9D9B0F42857DADC1E3453F32632537896722261910",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.528051181102362,
+          "candidate": "result/pta_smoke/source_stepping/20260928192358564396/20260928192358564396.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192358564396/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S025_20260928193158990525.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "23666C25350FE84253DD5D1A7291B7BC1AAF3C24D08407E7D2B7DBE050CE752B",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5273383768913344,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193158990525/20260928193158990525.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193158990525/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193847288392/20260928193847288392.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193847288392/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S026_20260928193728612549.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "26926793B9348BDAAB30A0778CA169A78AA644F8F66C4636108C6C4DC2980F18",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.603968253968254,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193728612549/20260928193728612549.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193728612549/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S027_20260928193719152657.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "2AA7F8DB4138A9C66065EB6E473CCFCEABF9F8A270C671569E02ABEE2C4FB3E4",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5247093023255816,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193719152657/20260928193719152657.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193719152657/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S028_20260928193406437263.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "30C6FE91670A1991DA25C56A6801F80ED55644946215E975D9F6A0838AFFC6FF",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.501554404145078,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193406437263/20260928193406437263.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193406437263/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S029_20260928192500069245.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "335D416C670B0F23FAA56DC387F3A4A47074837B7F0C8B0DE93EDF2BC4EABB6C",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5051605504587156,
+          "candidate": "result/pta_smoke/source_stepping/20260928192500069245/20260928192500069245.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192500069245/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S030_20260928193156126659.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "337828FEB7A6758677E57EE27DE49A94231F7A875FE1D3FA75C40C21A8A05A46",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.521276595744681,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193156126659/20260928193156126659.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193156126659/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193501877958/20260928193501877958.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193501877958/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S031_20260928193623042117.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "34318D49459039BF0A08549978E5B8FFD55B493149C33752D6FE0FA3EEE3EF0C",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5040983606557377,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193623042117/20260928193623042117.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193623042117/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S032_20260928193339781189.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "386D8CB6A8780643BB94B2C23ED81DB9874B4F6FB83306B3168537C2EC6F62E8",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5652849740932644,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193339781189/20260928193339781189.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193339781189/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S033_20260928192544415534.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "3A99558B3664D150E411B951DDEBBB30955BB5FDC8CEB8C64499DFC0462A4E87",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5304878048780486,
+          "candidate": "result/pta_smoke/source_stepping/20260928192544415534/20260928192544415534.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192544415534/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S034_20260928193831135342.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "3AA5EE2ECFEE519D8A8E7F60433F0D5A6004AA4751345F55179BB59BAE02D74C",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.7135036496350367,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193831135342/20260928193831135342.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193831135342/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S035_20260928193050307655.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "3DDE8FC79C7D525DCF4AF2626DB7385805CC945EE8EAFC2312489E2C3600D418",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.578723404255319,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193050307655/20260928193050307655.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193050307655/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S036_20260928192942720622.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "42D358A6FDB2904493600CF4BD805693167DEBC603286571C4D7BA757DBD2FC6",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.6393617021276596,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928192942720622/20260928192942720622.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928192942720622/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193205461087/20260928193205461087.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193205461087/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S037_20260928192430344094.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "48392518D2ABEF85F15E3377B7E4B6888E605FF1A357F1BE8105CED90D76B70D",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.560483870967742,
+          "candidate": "result/pta_smoke/source_stepping/20260928192430344094/20260928192430344094.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192430344094/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S038_20260928193450639733.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "49475394A588BF8439E52B3D7C29C9210DEDDEAB6881F20F700A331A04A4A3B6",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.840634441087613,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193450639733/20260928193450639733.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193450639733/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S039_20260928193231100677.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "4A3D2C227656C5FB3394BEC970304E93B76290B69FAAF50DC3EB7E96AD6A9A7A",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5783723875870805,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193231100677/20260928193231100677.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193231100677/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S040_20260928192420224587.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "4DB518097A5C5EDB995173C784CC3DEC7032D882886919C6343B755380F845F8",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.509018036072144,
+          "candidate": "result/pta_smoke/source_stepping/20260928192420224587/20260928192420224587.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192420224587/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S041_20260928193554202727.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "4E37094BBD2A86215A56B7D86A92CA50DC0E6EDA9AF0DDC63C4D1A075C25B033",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5093076420640106,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193554202727/20260928193554202727.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193554202727/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S042_20260928193640271783.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "502E57DB7C7E8EA7D2F45F96C81A5E7DBA73EC0D5A3D775B1FCE2A895D3D3EAD",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.572878228782288,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193640271783/20260928193640271783.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193640271783/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S043_20260928192505541111.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "51DC6414A9D7BEE854D2399E797CBA6EFA7176569FF5FC82793C13E680D28A08",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5165,
+          "candidate": "result/pta_smoke/source_stepping/20260928192505541111/20260928192505541111.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192505541111/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S044_20260928193821484269.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "52F31752B1CC87D74972636A68793037576444FB894E09E232F31F50A1C94967",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.585210577864838,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193821484269/20260928193821484269.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193821484269/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S045_20260928193430519050.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "58F0C80E4E32F785E35ED91D33F549FD1C21D9E8579C71DD85D6CC7ED33F9F21",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5478056426332287,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193430519050/20260928193430519050.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193430519050/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S046_20260928193415983272.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "5A9CBDF40C6564405C58EE2A675FA86660DA0E83CD419638BB9FD023F2D73C6E",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.501359927470535,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193415983272/20260928193415983272.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193415983272/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193748619850/20260928193748619850.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193748619850/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S047_20260928193631727584.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "5B0D3D0C986C359A5F177A7EFBA1150CBC33E58ACB71525E091A2A6651E1A324",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.505859375,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193631727584/20260928193631727584.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193631727584/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S048_20260928193223141753.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "5BB8D5ED8F0F3D8D2B26FD140047630EC8F0DDEDAA1AF848FDDF72F76D8A6ADB",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.615874363327674,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193223141753/20260928193223141753.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193223141753/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S049_20260928193337230844.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "5D61265D6065A835DFA38BC735BE41E1BA98FA9D52CD3FFAF38EF99476C742F3",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.64375,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193337230844/20260928193337230844.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193337230844/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S050_20260928192507824819.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "5D7BB37FB9AF2BB425E2B009ED3B2BE00DEC04D8D38A0B6C3C9DE9BF4DDA9534",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5431472081218276,
+          "candidate": "result/pta_smoke/source_stepping/20260928192507824819/20260928192507824819.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192507824819/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S051_20260928193817416691.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "629241CF0418689CCE405DEEF564466FCD0B19D39FBD31201275174B89130394",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.589483394833948,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193817416691/20260928193817416691.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193817416691/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S052_20260928192933518610.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "643ECEF318EA714A979665A40BCBD86258ADDE07770F0DC56479281DB242F8E6",
+      "duplicate_occurrences": 4,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.6578726968174204,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928192933518610/20260928192933518610.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928192933518610/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193145204154/20260928193145204154.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193145204154/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193441344187/20260928193441344187.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193441344187/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193541968079/20260928193541968079.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193541968079/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S053_20260928193448720680.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "682CB9FEE317222E9FF4EF056CFF6623134C386EA8D3DE82101D04A9BAB39322",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.547648514851485,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193448720680/20260928193448720680.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193448720680/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S054_20260928193849479821.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "68301171C88B4475A4997B7B08E84326BE87EED98403FDCC88D91972677D3E07",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.6184931506849316,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193849479821/20260928193849479821.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193849479821/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S055_20260928193807706288.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "69B28A6070A67827AB01F169C55C12EDEE481866C12680D935C9E767C0994EDE",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.503690036900369,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193807706288/20260928193807706288.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193807706288/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S056_20260928193422436788.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "6A030E055B5645733DF4F47F0AF38959A29ED3F276AFF20EB03F4B096EA49BDC",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5993231312536786,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193422436788/20260928193422436788.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193422436788/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S057_20260928192510129547.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "6AB4773AE179390AEE6164A893F27BCA24B43818B54EF00B46076DD05078786A",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.7711864406779663,
+          "candidate": "result/pta_smoke/source_stepping/20260928192510129547/20260928192510129547.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192510129547/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S058_20260928193135310912.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "71514DD88674EA7CDDACC9AA91B9F9BEAFD9B14C1829039AF3F766B8DCA6CD2F",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.6184210526315788,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193135310912/20260928193135310912.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193135310912/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S059_20260928192512603476.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "7288AA268C0C880D5A3C2554EF24E91620456A6E2D9813CA602288D23FF86FEF",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5343803056027165,
+          "candidate": "result/pta_smoke/source_stepping/20260928192512603476/20260928192512603476.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192512603476/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S060_20260928192340226131.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "72CA27D31A43EA83FE8E4CF72775DC2734767676DBE9375DF2883002D88E6642",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.596969696969697,
+          "candidate": "result/pta_smoke/source_stepping/20260928192340226131/20260928192340226131.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192340226131/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_smoke/source_stepping/20260928192344567717/20260928192344567717.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192344567717/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S061_20260928192914161379.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "75E9C43C61065588688DE7311470E0FF39C42D496FBC9C91A1229D9DDFB51B05",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.595145631067961,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928192914161379/20260928192914161379.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928192914161379/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193007921135/20260928193007921135.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193007921135/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S062_20260928193834649988.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "75F61D8C022390E9248A884C4906C5DD7D50B6A6BB399E98A391622CF81BDA80",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.572554347826087,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193834649988/20260928193834649988.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193834649988/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S063_20260928192348395962.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "76AE7479D7C66EB70F314D00EDCAF63976EE033BFA6C724C37EC6B02361C35DD",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5268456375838926,
+          "candidate": "result/pta_smoke/source_stepping/20260928192348395962/20260928192348395962.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192348395962/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S064_20260928193152073840.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "76DACCD8074C0AD4B9F27C2BE8893945525EEABD6A93BA5B331B6FD0EDD847C0",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5184151785714284,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193152073840/20260928193152073840.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193152073840/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S065_20260928193334846902.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "775F1BEDC20EC5EF31FBFFC7307B8664C09E2B634CA7C875D88B5D997902721E",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5309477756286265,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193334846902/20260928193334846902.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193334846902/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193530773770/20260928193530773770.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193530773770/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S066_20260928193208889581.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "7A8B136239B55880106927ED65DEC472B21A453DC038B8EAF263001A4C223865",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.562320916905444,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193208889581/20260928193208889581.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193208889581/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S067_20260928193852383753.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "7B4D3E031F3650A9D0E15917D52EE9D0B9481A514A848354D099D9C171DCFE44",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5093808630393997,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193852383753/20260928193852383753.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193852383753/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S068_20260928193353458675.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "7B6D8292E875418F709A96E3FF35A21D5850EF5CA59311D79580D7FE3D91B026",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5088235294117647,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193353458675/20260928193353458675.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193353458675/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S069_20260928193037153440.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "7D9781CB947F050BBA3769C3F0F15DE6112D42B0E5F639152D895395206803C5",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5058345120226306,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193037153440/20260928193037153440.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193037153440/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193557031594/20260928193557031594.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193557031594/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S070_20260928193601499530.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "7FCA71266C1629E7F8C7402766F2747BE267A1CDF8298F6B3653DA711D99C2FF",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.60062893081761,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193601499530/20260928193601499530.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193601499530/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S071_20260928192425838425.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "80A426372C87D7022D4AD916CFFD5863896FEE01002537732F1409079C377AC3",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5872093023255816,
+          "candidate": "result/pta_smoke/source_stepping/20260928192425838425/20260928192425838425.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192425838425/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S072_20260928193705037535.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "81FE738CE5E95843F52E8D9A5697C6CC15D90735AB3BBE90CD2B5EF87F754C3F",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5052083333333335,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193705037535/20260928193705037535.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193705037535/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S073_20260928192439960385.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "86AE8B2727B0F6176686952985CC14042B5BD7F2B7A97E34DA1921F330770216",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5556586270871984,
+          "candidate": "result/pta_smoke/source_stepping/20260928192439960385/20260928192439960385.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192439960385/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S074_20260928192455369264.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "871B88C7B883C8CA80113799A54DD6FAB650A25CED924DA780F2C9A95C8F59D3",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.507239382239382,
+          "candidate": "result/pta_smoke/source_stepping/20260928192455369264/20260928192455369264.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192455369264/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S075_20260928192542181685.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "8A7B37276A4B9E8D27DFFE8CCC7DCFABCCC639AAD1454C8A92C6E01464D5F708",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.507518796992481,
+          "candidate": "result/pta_smoke/source_stepping/20260928192542181685/20260928192542181685.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192542181685/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S076_20260928193829671270.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "8B425355535A01A940C0FD32A93820DFFC2813BCC59BBF03085E1161FC6770F8",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.528770706190061,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193829671270/20260928193829671270.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193829671270/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S077_20260928193507719192.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "8B4A21C1D1A4746D0D2905642299FBD74996C0D2B5AA9BC5C5064BE337A5C616",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5008370535714284,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193507719192/20260928193507719192.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193507719192/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S078_20260928192533071155.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "8C812E1498DAFACCBD968469E2D3F6F261D9557EC6BE10B633308D1993BDE7F8",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5073632538569424,
+          "candidate": "result/pta_smoke/source_stepping/20260928192533071155/20260928192533071155.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192533071155/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S079_20260928193628882093.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "8ECCFEBA5FBCFA0B495F41FBAAB9354BCDAA109B5BD5935F7A419557743FAE24",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.561141304347826,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193628882093/20260928193628882093.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193628882093/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S080_20260928193401214208.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "9437DCF0CD99C6F1F6FB2794A290A0ABCE8F6195808E5743AAF108EC59B845A7",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5008375209380236,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193401214208/20260928193401214208.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193401214208/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193411738710/20260928193411738710.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193411738710/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S081_20260928192436028477.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "9556529DA2BB9EF4F7D045F30F0281BB09C5BC434C635DE106B4F627F1C3A87E",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.597770154373928,
+          "candidate": "result/pta_smoke/source_stepping/20260928192436028477/20260928192436028477.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192436028477/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S082_20260928192421979274.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "958CEAF7B17B189B6DA2251B0B1D32EA652F44C50D86D76B25E897D980D1A165",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5083705357142856,
+          "candidate": "result/pta_smoke/source_stepping/20260928192421979274/20260928192421979274.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192421979274/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S083_20260928193613005158.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "95A4F671FB8C45881D9961794888016F83FB271CE576A02165C8E6984A036044",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5366436537440253,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193613005158/20260928193613005158.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193613005158/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S084_20260928193534759709.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "95AC264881B30C35EEC4E485DE2E8B6D6F7B3013F8FC5F2F2730E86213AF8FBB",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.509562841530055,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193534759709/20260928193534759709.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193534759709/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S085_20260928193638072280.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "9C2CCBA425B6A90D0769C6A984C5E2FBA1B10D9F2CB8CE083530F60947BE3130",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5188916876574305,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193638072280/20260928193638072280.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193638072280/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S086_20260928192519116768.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "9C7A05E148920CFC34AF9FBCAFD0F252EF4BAEEE2EBE9E87175B554DF91FF09E",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.545,
+          "candidate": "result/pta_smoke/source_stepping/20260928192519116768/20260928192519116768.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192519116768/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S087_20260928192444315455.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "9E4B4DF9A1AF413BCBEA94222DC6EC110D30B4937DA350873158429E409DDB6E",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5234375,
+          "candidate": "result/pta_smoke/source_stepping/20260928192444315455/20260928192444315455.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192444315455/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S088_20260928193345213045.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "9F8D8AB45FDE25B510CDBEFEA5DA8070060EE51EE96816A63EAAE5D9B35BD9D5",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5101763907734056,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193345213045/20260928193345213045.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193345213045/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S089_20260928192342289665.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "A1410C73CA55AA9591A2F7D8FA2A8E0999D1590484F0B91B114745B892B5BFD2",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.624446902654867,
+          "candidate": "result/pta_smoke/source_stepping/20260928192342289665/20260928192342289665.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192342289665/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_smoke/source_stepping/20260928192356702186/20260928192356702186.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192356702186/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S090_20260928193238555402.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "A243AB55D3A6526B8230606B57DC49D477841CA6FAE1A482D947284E402D6FAB",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.575301204819277,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193238555402/20260928193238555402.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193238555402/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S091_20260928193754021954.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "A3BE4F0DFF6CDD1B6360B0DA5D6920A00E84BCA0F433E334DAA6D29F3D95888F",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5162454873646207,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193754021954/20260928193754021954.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193754021954/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S092_20260928193030638762.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "A86193CA425B047CD835153AAD2DB22B0A944F56920C55BDE5174791ACE176D3",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.6078125,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193030638762/20260928193030638762.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193030638762/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S093_20260928193616962949.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "A9271ADA905BBA4BA6963640B20581CA2759A30AC3495B8965D7FC1187A6D445",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5452356817029904,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193616962949/20260928193616962949.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193616962949/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S094_20260928193827321977.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "A989963B7EAD71459A5DEBB65C58A311C1A6DE8694625DE2F0A493D08F6B0B13",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.6454513399153736,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193827321977/20260928193827321977.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193827321977/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S095_20260928193456873651.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "AE9F93A6F7C2B1FE1F01DE83C300998B60DFBA4E879A84F9BDEBE6E3F20AF085",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5939922480620154,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193456873651/20260928193456873651.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193456873651/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S096_20260928193854756499.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "AFECE41C2FB991F6F6D7D1032196ED6D14BC699BDBCA6CC8E76A142DD2B2A77D",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5492109634551494,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193854756499/20260928193854756499.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193854756499/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S097_20260928192940318653.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "B2D83837FD863569A363A96A73D54DB7432AFF36AEB6A4289080E6E95951C5BF",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.7542735042735043,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928192940318653/20260928192940318653.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928192940318653/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S098_20260928193500255878.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "B2FE1D4E1E6C2CFE1E765E1C7D28B6A37BF38A9D0708C7A41FCF65FEA89737F2",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5135699373695197,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193500255878/20260928193500255878.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193500255878/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S099_20260928193425674302.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "B321353025319EF148712D081E8FE5F95FB4E207024F70B868873D0431537756",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5090909090909093,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193425674302/20260928193425674302.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193425674302/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S100_20260928184830486195.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "B7532AAF24B3A7ABAA0D8FC0B218D31905B4560187AF476AD07BCD4AD1436CF4",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.695918367346939,
+          "candidate": "result/pta_smoke/source_stepping/20260928184830486195/20260928184830486195.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928184830486195/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S101_20260928193342500498.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "BD1CFB4898E378B11F8BC780E7583622F57C2A67FE80CC68D4A0541FE34C88ED",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.809198113207547,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193342500498/20260928193342500498.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193342500498/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S102_20260928193215576163.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "BEA16FF63CBDC1FAC4268F3F1E4E560993C8E87AA82DCE070E77D39D16A7BA44",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5469052224371374,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193215576163/20260928193215576163.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193215576163/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S103_20260928193802098138.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "BF8455203B22AF66961032AD0DA8AAF462EC02BA730F87573946D9049FD5FE80",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.6166121112929623,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193802098138/20260928193802098138.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193802098138/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S104_20260928193128085493.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "C050522AF3F75E1974D0059DA369EDABAE0151B20FA5487DBC30C6BD96BE2266",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.8760190217391304,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193128085493/20260928193128085493.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193128085493/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S105_20260928192503647321.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "C3A59FB155C1196F902876F6DA201168C0254101D6BD6B37DC671FBCCCBDC87C",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.503006012024048,
+          "candidate": "result/pta_smoke/source_stepping/20260928192503647321/20260928192503647321.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192503647321/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S106_20260928193756595183.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "C7EB7A8154BBF7D00383E86D26DEA0368467F0002449425112A4A7735B86EF2E",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5085513078470827,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193756595183/20260928193756595183.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193756595183/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S107_20260928193404147900.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "CB484866FF5C9BC05DD1FF66555E54E6F03E84AC71CBBA85CDEC8AB179807E81",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5460122699386503,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193404147900/20260928193404147900.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193404147900/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S108_20260928193743036333.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "CD78025E53851731EF4927EB3C27FD978A14947B4409EB19E960A8E3DAE0BC57",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.521132596685083,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193743036333/20260928193743036333.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193743036333/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S109_20260928192526305126.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "D2675232E005A57D6C1EC9DF4AD4FA1A93327D1786AF08A76F3CDC06D71212FF",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.8930288461538463,
+          "candidate": "result/pta_smoke/source_stepping/20260928192526305126/20260928192526305126.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192526305126/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S110_20260928193751891433.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "D3C58E6DACF163392003E233DC3252A959A9E611432AE22135486E794EF716F3",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5078685808945336,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193751891433/20260928193751891433.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193751891433/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S111_20260928192604942903.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "D3F04BC3961FCAB82127027C71EBEE0375EF3B9311EB07D2D2F3AD39D8936082",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5254237288135593,
+          "candidate": "result/pta_smoke/source_stepping/20260928192604942903/20260928192604942903.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192604942903/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S112_20260928193634060334.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "D3FADC7B51060B79D8C160B2E2A3807ED42D1533FF2EA767392765440034BABF",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5026246719160103,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193634060334/20260928193634060334.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193634060334/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S113_20260928192540354634.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "D58F8B5CC1E9E81BD89D52253736A6206E24AE55ECC9EDA9B3B3B2D6A67E07E3",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.552771855010661,
+          "candidate": "result/pta_smoke/source_stepping/20260928192540354634/20260928192540354634.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192540354634/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S114_20260928193901718693.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "D7482084DF3E3581D8843B0E0C1354B828CFC1A32BBD2A12BBE6BB4A045ABAD2",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.577390599675851,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193901718693/20260928193901718693.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193901718693/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S115_20260928193228017443.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "DA98EF253A6C820C250C7948057335FA23FDB9FDC707C1C31523012A589CBBA8",
+      "duplicate_occurrences": 4,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5802715654952078,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193228017443/20260928193228017443.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193228017443/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193538601469/20260928193538601469.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193538601469/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193621454129/20260928193621454129.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193621454129/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193726321467/20260928193726321467.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193726321467/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S116_20260928193028881913.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "DAD6595B24AFF4A662FC607DF4278FBCAAA7D2F8B59C57CDF5267DDDB4746505",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5315896739130435,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193028881913/20260928193028881913.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193028881913/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S117_20260928193154628225.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "DC7589281539189B20747DA76AB914479EC0B955580E1F5367DAA6BAFF98932E",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5133570792520037,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193154628225/20260928193154628225.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193154628225/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S118_20260928193454840097.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "DEAB4A948190D1A2887C1DF39780663EFD0BE34C3063133E61000C9DEE839C95",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.512615643397813,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193454840097/20260928193454840097.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193454840097/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S119_20260928192415189889.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "E0230D2850021C6D15078B3620690D4DF70C42C6DD6F424D16A934D49FAD1954",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.513100436681223,
+          "candidate": "result/pta_smoke/source_stepping/20260928192415189889/20260928192415189889.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192415189889/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S120_20260928192338500145.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "E1CEA6755A4D644E50D94F6ABABA0DEB72BBC28C4B7B01697F81871B4178102B",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5643851508120648,
+          "candidate": "result/pta_smoke/source_stepping/20260928192338500145/20260928192338500145.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192338500145/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S121_20260928193746230471.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "EF1AA53D0C529667F9A3CCAC56AFA6F791F280227DE614852E769FEB634D3D8A",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5004187604690116,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193746230471/20260928193746230471.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193746230471/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S122_20260928193347815652.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "F10CEED5A2BF4E97A5715EA3009FC9DD10E1A6C713C713E6D79307A24F8E56F4",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5160284951024043,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193347815652/20260928193347815652.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193347815652/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S123_20260928193604525849.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "F28EE39E038BBEE1ED6DAF6B64953457DA4AFE6249F398E868856FB639B76209",
+      "duplicate_occurrences": 2,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5142529488859764,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193604525849/20260928193604525849.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193604525849/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        },
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193707979855/20260928193707979855.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193707979855/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S124_20260928193147634032.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "F449B579213207C0E56F98AB29CB3D645938A882B4CD365D56D58A3E4A2F978D",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.6856164383561643,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193147634032/20260928193147634032.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193147634032/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S125_20260928193551388775.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "F595E5EAC37847195BA048D8ED74104AC229E67B2D27BB22112495AEEBF241B9",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5406626506024095,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193551388775/20260928193551388775.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193551388775/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S126_20260928193142136588.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "F82D329415669A038DC6E18073EBC2BCA316E0910E53CD7289D8B8B3CCFA402B",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5399590163934427,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193142136588/20260928193142136588.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193142136588/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S127_20260928192603023406.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "FC20297190864965C5B2D64AE1F748B66C0687F119CE77D45ADB223A90BF4BC3",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_smoke",
+          "stage": "source_stepping",
+          "reward": 3.5281456953642385,
+          "candidate": "result/pta_smoke/source_stepping/20260928192603023406/20260928192603023406.cir",
+          "evaluation": "result/pta_smoke/source_stepping/20260928192603023406/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S128_20260928193703326858.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "FD33748C44DC48E1D8CFC9D2EB5D74C1C6668759938D68E7522BB0BCCE20466C",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.5033351862145636,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193703326858/20260928193703326858.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193703326858/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/secondary_nr_fail/S129_20260928193444120785.cir",
+      "tier": "secondary_nr_fail",
+      "sha256": "FE4CBC5BFADAA03E8551BB906403EA0F85F0F1054B90AAE3598B20A8E0E06719",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "source_stepping",
+          "reward": 3.511831726555653,
+          "candidate": "result/pta_directed_10m/source_stepping/20260928193444120785/20260928193444120785.cir",
+          "evaluation": "result/pta_directed_10m/source_stepping/20260928193444120785/evaluation.json",
+          "nr_only_code": 1,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/controls_nr_converged/C001_20260928192907438173.cir",
+      "tier": "controls_nr_converged",
+      "sha256": "4E75812D3DCC2BDEEA63EB41972F051A7D102F55D89FBB82CE1946B520A598E5",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "nr",
+          "reward": -0.5346820809248555,
+          "candidate": "result/pta_directed_10m/nr/20260928192907438173/20260928192907438173.cir",
+          "evaluation": "result/pta_directed_10m/nr/20260928192907438173/evaluation.json",
+          "nr_only_code": 0,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/controls_nr_converged/C002_20260928192915818118.cir",
+      "tier": "controls_nr_converged",
+      "sha256": "2AF3B3C5690EADD33DBA0929EA42C83B3AEBF887ABC207604213F5CD18B47F21",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "nr",
+          "reward": -0.564974182444062,
+          "candidate": "result/pta_directed_10m/nr/20260928192915818118/20260928192915818118.cir",
+          "evaluation": "result/pta_directed_10m/nr/20260928192915818118/evaluation.json",
+          "nr_only_code": 0,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/controls_nr_converged/C003_20260928193026857175.cir",
+      "tier": "controls_nr_converged",
+      "sha256": "E0999C220A58DAF0CEBCD2B677ADFCAC18670AACF9814CB460F5CDFBCC88C38E",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "nr",
+          "reward": -0.5861702127659574,
+          "candidate": "result/pta_directed_10m/nr/20260928193026857175/20260928193026857175.cir",
+          "evaluation": "result/pta_directed_10m/nr/20260928193026857175/evaluation.json",
+          "nr_only_code": 0,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/controls_nr_converged/C004_20260928192911798460.cir",
+      "tier": "controls_nr_converged",
+      "sha256": "0D1072851B8211BBE1B41B8D4AA8349FA463C5E44F39837C27B1A787C06BAACD",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "nr",
+          "reward": -0.5895008605851979,
+          "candidate": "result/pta_directed_10m/nr/20260928192911798460/20260928192911798460.cir",
+          "evaluation": "result/pta_directed_10m/nr/20260928192911798460/evaluation.json",
+          "nr_only_code": 0,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/controls_nr_converged/C005_20260928193512482754.cir",
+      "tier": "controls_nr_converged",
+      "sha256": "7F909C3AA199D20AB69E52E7D9344188423FAEEBD6BB48CFB167C75D82A970D9",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "nr",
+          "reward": -0.62124248496994,
+          "candidate": "result/pta_directed_10m/nr/20260928193512482754/20260928193512482754.cir",
+          "evaluation": "result/pta_directed_10m/nr/20260928193512482754/evaluation.json",
+          "nr_only_code": 0,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/controls_nr_converged/C006_20260928193413595840.cir",
+      "tier": "controls_nr_converged",
+      "sha256": "83A2B31CC20FD47665BD5637D6B7D7AE3AF2EFD12208D2200F9D6DB57E0B6F9B",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "nr",
+          "reward": -0.6377755511022044,
+          "candidate": "result/pta_directed_10m/nr/20260928193413595840/20260928193413595840.cir",
+          "evaluation": "result/pta_directed_10m/nr/20260928193413595840/evaluation.json",
+          "nr_only_code": 0,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/controls_nr_converged/C007_20260928192925056800.cir",
+      "tier": "controls_nr_converged",
+      "sha256": "4175AB7BAB54DE137B62DE047F934FD645608910E76640A13E5E375D56A4AF10",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "nr",
+          "reward": -0.6378048780487805,
+          "candidate": "result/pta_directed_10m/nr/20260928192925056800/20260928192925056800.cir",
+          "evaluation": "result/pta_directed_10m/nr/20260928192925056800/evaluation.json",
+          "nr_only_code": 0,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/controls_nr_converged/C008_20260928193207095334.cir",
+      "tier": "controls_nr_converged",
+      "sha256": "65CFBECFEFC64442791B5DBE279896AB81ACE7F5A0EDCA21827014AD481FDC8B",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "nr",
+          "reward": -0.6451219512195122,
+          "candidate": "result/pta_directed_10m/nr/20260928193207095334/20260928193207095334.cir",
+          "evaluation": "result/pta_directed_10m/nr/20260928193207095334/evaluation.json",
+          "nr_only_code": 0,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/controls_nr_converged/C009_20260928193350511952.cir",
+      "tier": "controls_nr_converged",
+      "sha256": "AF968F996CB087DCCCBD389CBEC4C850134769C0B930F12A32FCC6C06B5D9FB0",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "nr",
+          "reward": -0.6482965931863727,
+          "candidate": "result/pta_directed_10m/nr/20260928193350511952/20260928193350511952.cir",
+          "evaluation": "result/pta_directed_10m/nr/20260928193350511952/evaluation.json",
+          "nr_only_code": 0,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    },
+    {
+      "exported_path": "netlists/controls_nr_converged/C010_20260928193349045657.cir",
+      "tier": "controls_nr_converged",
+      "sha256": "6C86F75F93C6302922A7D3E1378361D1EC0E8EA39E2ECAE881B320CF88A77673",
+      "duplicate_occurrences": 1,
+      "source_records": [
+        {
+          "run": "pta_directed_10m",
+          "stage": "nr",
+          "reward": -0.6633266533066132,
+          "candidate": "result/pta_directed_10m/nr/20260928193349045657/20260928193349045657.cir",
+          "evaluation": "result/pta_directed_10m/nr/20260928193349045657/evaluation.json",
+          "nr_only_code": 0,
+          "nr_source_code": 0,
+          "nr_pta_code": 0,
+          "full_fallback_code": 0
+        }
+      ]
+    }
+  ]
+}

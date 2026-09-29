@@ -1,0 +1,7 @@
+{
+  "reason": "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_smoke\\20260928192453530895.cir:7: parse error: Only a single DC voltage-source value is supported\n",
+  "reward": {
+    "total": -4.0
+  },
+  "stage": "invalid"
+}

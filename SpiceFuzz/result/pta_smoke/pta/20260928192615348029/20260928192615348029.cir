@@ -1,0 +1,33 @@
+SpiceFuzz generated DC operating-point netlist
+.model NMOD NMOS LEVEL=1 VTO=0.7 KP=200u LAMBDA=0.02
+.model PMOD PMOS LEVEL=1 VTO=-0.7 KP=100u LAMBDA=0.02
+.model QMOD NPN IS=1e-16 BF=200 BR=2 NF=1 NR=1 VA=80 IKF=1e-3
+.model DCLAMP D IS=1e-14 N=1.05 RS=8
+VDD vdd 0 DC 5
+RBIAS vdd q 500k
+MNQ q qb 0 0 NMOD W=10u L=1u
+MPQ q qb vdd vdd PMOD W=20u L=1u
+MNQB qb q 0 0 NMOD W=10u L=1u
+MPQB qb q vdd vdd PMOD W=20u L=1u
+MNLOAD qb vdd 0 0 NMOD W=10u L=1u
+QBOOST qb q 0 QMOD AREA=1
+QBOOST2 qb2 q 0 QMOD AREA=1.05
+QSTACK1 qb2 qs1 0 QMOD AREA=1
+QSTACK2 qs1 qs2 0 QMOD AREA=1
+QSTACK3 qs2 qs3 0 QMOD AREA=1
+QSTACK4 qs3 qs4 0 QMOD AREA=1
+QSTACK5 qs4 0 0 QMOD AREA=1
+DCLAMP qb2 qs1 DCLAMP AREA=1
+RQ q 0 1g
+RQB qb 0 1g
+RQB2 qb2 0 1g
+RQS1 qs1 0 1g
+RQS2 qs2 0 1g
+RQS3 qs3 0 1g
+RQS4 qs4 0 1g
+RBRIDGE qb qb2 100
+RLEAK qb2 0 10meg
+.ic V(q)=5 V(qb)=0 V(qb2)=0 V(qs1)=0 V(qs2)=0 V(qs3)=0 V(qs4)=0
+.op
+.print op v(vdd) v(q) v(qb) v(qb2) v(qs1) v(qs2) v(qs3) v(qs4) i(VDD)
+.end

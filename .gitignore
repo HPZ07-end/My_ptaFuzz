@@ -1,0 +1,69 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ===== 虚拟环境 =====
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ===== PyTorch / 模型 / 大文件 =====
+*.pth
+*.pt
+*.ckpt
+*.bin
+*.dll
+*.lib
+*.so
+*.dylib
+*.a
+*.o
+*.obj
+
+# ===== IDE =====
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ===== 系统 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== 日志 / 数据库 =====
+*.log
+*.sqlite3
+*.db
+
+# ===== 环境变量 / 密钥 =====
+.env
+.env.*
+*.key
+*.pem
+
+# ===== Node.js（如果项目里有前端） =====
+node_modules/

@@ -1,0 +1,48 @@
+TRAN level 3 case 09: distributed rc line
+* Stress-mesh topology family adapted from ngspice manual RC/transmission-line examples; primitive-only subset: https://ngspice.sourceforge.io/docs/ngspice-manual.pdf
+VDRV in 0 DC 3.3
+RCORE1 in out 1.2k
+RCORE2 out 0 2.7k
+CCORE out 0 12n
+RF001 out n002 180
+RG001 n002 0 13k
+CF001 n002 0 4n
+RB001 n002 in 8k
+RX001 n002 in 22k
+RX002 n002 in 23k
+RX003 n002 in 24k
+RX004 n002 in 25k
+RF002 n002 n003 316
+RG002 n003 0 21k
+CF002 n003 0 12n
+RB002 n003 in 16k
+RX005 n003 in 30k
+RX006 n003 in 31k
+RX007 n003 in 32k
+RX008 n003 in 33k
+RF003 n003 n004 452
+RG003 n004 0 29k
+CF003 n004 0 7n
+RB003 n004 in 7k
+RX009 n004 in 38k
+RX010 n004 in 39k
+RX011 n004 in 40k
+RX012 n004 in 41k
+RF004 n004 n005 265
+RG004 n005 0 14k
+CF004 n005 0 2n
+RB004 n005 out 15k
+RX013 n005 in 46k
+RX014 n005 in 18k
+RX015 n005 in 19k
+RX016 n005 in 20k
+RF005 n005 n006 401
+RG005 n006 0 22k
+CF005 n006 0 10n
+RB005 n006 n002 6k
+RX017 n006 in 25k
+RX018 n006 in 26k
+RX019 n006 in 27k
+.tran 1u 10u 0 1u UIC
+.print tran time v(in) v(out) i(VDRV)
+.end

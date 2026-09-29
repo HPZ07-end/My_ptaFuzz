@@ -1,0 +1,31 @@
+Title: SpiceFuzz generated DC operating-point netlist
+Date: Mon Sep 28 19:32:15 2026
+Plotname: Operating Point
+Flags: real
+No. Variables: 11
+No. Points: 1
+Variables:
+	0	v(in)	voltage
+	1	v(out)	voltage
+	2	v(n002)	voltage
+	3	v(n003)	voltage
+	4	v(n004)	voltage
+	5	v(n005)	voltage
+	6	v(n006)	voltage
+	7	v(n007)	voltage
+	8	v(n008)	voltage
+	9	v(n009)	voltage
+	10	i(vdrv)	current
+Values:
+ 0	1.800000000000000e+00
+	8.409902320308448e-01
+	8.652407678170214e-01
+	3.399716411028033e-02
+	7.786873245608837e-02
+	2.887729656135557e-01
+	2.983320361250364e-01
+	1.111313317029086e+00
+	6.754163172680915e-01
+	6.814575320229672e-01
+	-1.043098221811299e+00
+

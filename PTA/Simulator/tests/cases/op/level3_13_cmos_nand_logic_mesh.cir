@@ -1,0 +1,98 @@
+OP level 3 case 13: cmos nand logic mesh
+* Stress-mesh topology family adapted from ngspice manual differential-pair and four-bit NAND-adder examples; primitive-only subset: https://ngspice.sourceforge.io/docs/ngspice-manual.pdf
+.model NMOD NMOS LEVEL=1 VTO=0.7 KP=80u LAMBDA=0.02 GMIN=1e-10
+.model PMOD PMOS LEVEL=1 VTO=-0.7 KP=40u LAMBDA=0.02 GMIN=1e-10
+VDD vdd 0 DC 5
+VA a 0 DC 0.4
+VB b 0 DC 2.7
+MCOREP1 out a vdd vdd PMOD W=20u L=1u
+MCOREP2 out b vdd vdd PMOD W=20u L=1u
+MCOREN1 out a stack 0 NMOD W=12u L=1u
+MCOREN2 stack b 0 0 NMOD W=12u L=1u
+RSTACK stack 0 1meg
+ROUT out 0 220k
+RF001 out n005 180
+RG001 n005 0 13k
+RB001 n005 stack 5k
+RB002 n005 a 8k
+RX001 n005 vdd 22k
+RX002 n005 vdd 23k
+MF001 n005 0 0 0 NMOD W=8u L=1u
+RX003 n005 vdd 25k
+RF002 n005 n006 316
+RG002 n006 0 21k
+RB003 n006 out 13k
+RB004 n006 b 16k
+RX004 n006 vdd 30k
+RX005 n006 vdd 31k
+MF002 n006 0 0 0 NMOD W=8u L=1u
+RX006 n006 vdd 33k
+RF003 n006 n007 452
+RG003 n007 0 29k
+RB005 n007 n005 10k
+RB006 n007 stack 7k
+RX007 n007 vdd 38k
+RX008 n007 vdd 39k
+MF003 n007 0 0 0 NMOD W=8u L=1u
+RX009 n007 vdd 41k
+RF004 n007 n008 265
+RG004 n008 0 14k
+RB007 n008 n006 7k
+RB008 n008 out 15k
+RX010 n008 vdd 46k
+RX011 n008 vdd 18k
+MF004 n008 0 0 0 NMOD W=8u L=1u
+RX012 n008 vdd 20k
+RF005 n008 n009 401
+RG005 n009 0 22k
+RB009 n009 n007 4k
+RB010 n009 n005 6k
+RX013 n009 vdd 25k
+RX014 n009 vdd 26k
+MF005 n009 0 0 0 NMOD W=8u L=1u
+RX015 n009 vdd 28k
+RF006 n009 n010 214
+RG006 n010 0 30k
+RB011 n010 n008 12k
+RB012 n010 n006 14k
+RX016 n010 vdd 33k
+RX017 n010 vdd 34k
+MF006 n010 0 0 0 NMOD W=8u L=1u
+RX018 n010 vdd 36k
+RF007 n010 n011 350
+RG007 n011 0 15k
+RB013 n011 n009 9k
+RB014 n011 n007 5k
+RX019 n011 vdd 41k
+RX020 n011 vdd 42k
+MF007 n011 0 0 0 NMOD W=8u L=1u
+RX021 n011 vdd 44k
+RF008 n011 n012 486
+RG008 n012 0 23k
+RB015 n012 n010 6k
+RB016 n012 n008 13k
+RX022 n012 vdd 20k
+RX023 n012 vdd 21k
+MF008 n012 0 0 0 NMOD W=8u L=1u
+RX024 n012 vdd 23k
+RF009 n012 n013 299
+RG009 n013 0 31k
+RB017 n013 n011 3k
+RB018 n013 n009 21k
+RX025 n013 vdd 28k
+RX026 n013 vdd 29k
+MF009 n013 0 0 0 NMOD W=8u L=1u
+RX027 n013 vdd 31k
+RF010 n013 n014 435
+RG010 n014 0 16k
+RB019 n014 n012 11k
+RB020 n014 n010 12k
+RX028 n014 vdd 36k
+RX029 n014 vdd 37k
+MF010 n014 0 0 0 NMOD W=8u L=1u
+RX030 n014 vdd 39k
+RF011 n014 n015 248
+RG011 n015 0 24k
+.op
+.print op v(vdd) v(out) v(a) v(stack) i(VDD)
+.end
