@@ -1,7 +1,0 @@
-{
-  "reason": "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_directed_10m\\20260928193715506068.cir:73: parse error: Unknown MOSFET model: L=2u\n",
-  "reward": {
-    "total": -4.0
-  },
-  "stage": "invalid"
-}
