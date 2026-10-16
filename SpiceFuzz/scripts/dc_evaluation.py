@@ -1,7 +1,5 @@
 import json
-import shutil
-import subprocess
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
 
@@ -12,6 +10,8 @@ class DcStage(str, Enum):
     NR = "nr"
     GMIN = "gmin"
     SOURCE_STEPPING = "source_stepping"
+    OPTRAN = "optran"
+    UNKNOWN = "unknown"
     PTA = "pta"
     FAILED = "failed"
     TIMEOUT = "timeout"
@@ -33,6 +33,10 @@ class SolverOutcome:
     def timed_out(self):
         return self.code == TIMEOUT
 
+    @property
+    def verified_pta(self):
+        return self.succeeded and self.stage == DcStage.PTA and self.artifacts.get("validation", {}).get("verified_pta") is True
+
     def as_dict(self):
         payload = {
             "profile": self.profile,
@@ -42,11 +46,15 @@ class SolverOutcome:
             "returncode": self.artifacts.get("returncode"),
             "stdout": str(self.artifacts.get("stdout", ""))[-4000:],
             "stderr": str(self.artifacts.get("stderr", ""))[-4000:],
+            "artifacts": {key: str(value) for key, value in self.artifacts.items() if isinstance(value, Path)},
         }
         if "attempted_stages" in self.artifacts:
             payload["attempted_stages"] = self.artifacts["attempted_stages"]
         if "failure_kind" in self.artifacts:
             payload["failure_kind"] = self.artifacts["failure_kind"]
+        for key in ("validation", "events", "iterations", "elapsed_seconds", "profile_settings", "version", "input_sha256"):
+            if key in self.artifacts:
+                payload[key] = self.artifacts[key]
         return payload
 
 
@@ -54,6 +62,9 @@ class SolverOutcome:
 class DcEvaluation:
     outcomes: dict
     ngspice: SolverOutcome | None = None
+    ngspice_profiles: dict = field(default_factory=dict)
+    confirmation: dict = field(default_factory=dict)
+    mutation: dict = field(default_factory=dict)
 
     @property
     def nr_only(self):
@@ -74,7 +85,7 @@ class DcEvaluation:
     @property
     def pta_succeeded(self):
         return any(
-            outcome.succeeded and outcome.stage == DcStage.PTA
+            outcome.verified_pta
             for outcome in (self.nr_pta, self.full_fallback)
         )
 
@@ -89,12 +100,26 @@ class DcEvaluation:
 
     @property
     def authoritative_target(self):
-        """Stock ngspice genuinely failed to converge and PTA recovered it."""
+        """A reproducible cross-engine recovery, not proof of model equivalence."""
         return (
             self.ngspice is not None
             and self.baseline_failed
             and self.pta_succeeded
+            and self.confirmation.get("confirmed") is True
         )
+
+    @property
+    def nr_differential_candidate(self):
+        nr = self.ngspice_profiles.get("ng_nr")
+        return bool(nr and not nr.succeeded and nr.artifacts.get("failure_kind") == "convergence" and self.pta_succeeded)
+
+    @property
+    def trainable(self):
+        outcomes = list(self.outcomes.values()) + list(self.ngspice_profiles.values())
+        outcomes += [value for value in self.confirmation.values() if isinstance(value, SolverOutcome)]
+        if self.ngspice:
+            outcomes.append(self.ngspice)
+        return not any(outcome and outcome.artifacts.get("failure_kind") == "infrastructure" for outcome in outcomes)
 
     @property
     def internal_target(self):
@@ -126,6 +151,8 @@ class DcEvaluation:
             if failure_kind != "convergence":
                 return DcStage.FAILED
         if self.ngspice is None:
+            if any(outcome.stage == DcStage.INVALID for outcome in self.outcomes.values()):
+                return DcStage.INVALID
             if self.nr_only.succeeded:
                 return DcStage.NR
             if self.nr_source.succeeded:
@@ -145,6 +172,11 @@ class DcEvaluation:
             "baseline": "ngspice" if self.ngspice is not None else "pta_ordinary",
             "baseline_failed": self.baseline_failed,
             "authoritative_target": self.authoritative_target,
+            "nr_differential_candidate": self.nr_differential_candidate,
+            "trainable": self.trainable,
+            "model_equivalence": "not_established",
+            "confirmation": {key: value.as_dict() if isinstance(value, SolverOutcome) else value for key, value in self.confirmation.items()},
+            "mutation": self.mutation,
             "internal_target": self.internal_target,
             "pta_succeeded": self.pta_succeeded,
             "full_pta_required": self.full_pta_required,
@@ -153,6 +185,7 @@ class DcEvaluation:
                 for name, outcome in self.outcomes.items()
             },
             "ngspice": self.ngspice.as_dict() if self.ngspice else None,
+            "ngspice_profiles": {key: value.as_dict() for key, value in self.ngspice_profiles.items()},
         }
 
 
@@ -201,156 +234,40 @@ def run_pta_ablation(
             _stage_for_profile(profile, code),
             artifacts,
         )
+        if code == SUCCESS:
+            outcomes[profile].stage = DcStage(artifacts["validation"]["actual_stage"])
 
-    # A fallback executable can return success before entering its nominal last
-    # stage.  The independent prefix runs disambiguate the actual stopping point.
-    if outcomes["nr_only"].succeeded:
-        for profile in ("nr_source", "nr_pta", "full_fallback"):
-            if outcomes[profile].succeeded:
-                outcomes[profile].stage = DcStage.NR
-    else:
-        if outcomes["nr_source"].succeeded:
-            outcomes["nr_source"].stage = DcStage.SOURCE_STEPPING
-            if outcomes["full_fallback"].succeeded:
-                outcomes["full_fallback"].stage = DcStage.SOURCE_STEPPING
-        if outcomes["nr_pta"].succeeded:
-            outcomes["nr_pta"].stage = DcStage.PTA
-        if (
-            not outcomes["nr_source"].succeeded
-            and outcomes["full_fallback"].succeeded
-        ):
-            outcomes["full_fallback"].stage = DcStage.PTA
+    # The actual successful method comes from this run's report/trace; a
+    # separate prefix run is not evidence that a fallback took the same path.
     return DcEvaluation(outcomes)
 
 
 def _classify_ngspice_stage(text):
-    lower = text.lower()
-    source_position = max(
-        lower.rfind("source stepping"),
-        lower.rfind("source-step"),
-    )
-    gmin_position = max(
-        lower.rfind("gmin stepping"),
-        lower.rfind("gmin-step"),
-    )
-    if source_position >= 0 and source_position > gmin_position:
-        return DcStage.SOURCE_STEPPING
-    if gmin_position >= 0:
-        return DcStage.GMIN
-    return DcStage.NR
+    from scripts.ngspice_testing import successful_stage
+    return DcStage(successful_stage(text))
 
 
 def _ngspice_attempted_stages(text):
-    lower = text.lower()
-    stages = [DcStage.NR.value]
-    if "gmin stepping" in lower or "gmin-step" in lower:
-        stages.append(DcStage.GMIN.value)
-    if "source stepping" in lower or "source-step" in lower:
-        stages.append(DcStage.SOURCE_STEPPING.value)
-    return stages
+    from scripts.ngspice_testing import parse_stage_events
+    return list(dict.fromkeys(["nr"] + [event["stage"] for event in parse_stage_events(text)]))
 
 
 def _ngspice_failure_kind(text):
-    lower = text.lower()
-    syntax_invalid_markers = (
-        "error on line",
-        "unknown parameter",
-        "unknown device",
-        "unknown subckt",
-        "model definition not found",
-        "could not find a model",
-        "undefined parameter",
-        "syntax error",
-        "fatal error",
-    )
-    convergence_markers = (
-        "failed to converge",
-        "no convergence",
-        "dc solution failed",
-        "operating point failed",
-        "timestep too small",
-        "iteration limit reached",
-    )
-    structural_invalid_markers = (
-        "singular matrix",
-        "no dc path",
-    )
-    if any(marker in lower for marker in syntax_invalid_markers):
-        return "invalid"
-    if any(marker in lower for marker in convergence_markers):
-        return "convergence"
-    if any(marker in lower for marker in structural_invalid_markers):
-        return "invalid"
-    return "simulator_error"
+    from scripts.ngspice_testing import failure_kind
+    return failure_kind(text)
 
 
-def run_ngspice_baseline(filepath, filename, maxtime, simulator_path, output_root):
-    """Run stock ngspice and infer the successful DC recovery stage from its log."""
-    case_directory = Path(output_root).resolve() / Path(filename).stem
-    case_directory.mkdir(parents=True, exist_ok=True)
-    netlist_path = case_directory / Path(filename).name
-    shutil.copy2(filepath, netlist_path)
-    raw_path = case_directory / f"{Path(filename).stem}.raw"
-    log_path = case_directory / f"{Path(filename).stem}.log"
-    command = [
-        str(Path(simulator_path).resolve()),
-        "-b",
-        "-r",
-        str(raw_path),
-        "-o",
-        str(log_path),
-        str(netlist_path),
-    ]
-    try:
-        result = subprocess.run(
-            command,
-            cwd=case_directory,
-            timeout=maxtime,
-            capture_output=True,
-            text=True,
-            shell=False,
-        )
-        stdout = result.stdout or ""
-        stderr = result.stderr or ""
-        log_text = log_path.read_text(errors="replace") if log_path.is_file() else ""
-        succeeded = result.returncode == 0 and raw_path.is_file() and raw_path.stat().st_size > 0
-        code = SUCCESS if succeeded else FAILURE
-        diagnostic_text = log_text + "\n" + stdout + "\n" + stderr
-        stage = _classify_ngspice_stage(diagnostic_text)
-        failure_kind = None if succeeded else _ngspice_failure_kind(diagnostic_text)
-        return SolverOutcome("ngspice", code, stage, {
-            "directory": case_directory,
-            "raw": raw_path,
-            "log": log_path,
-            "command": command,
-            "stdout": stdout,
-            "stderr": stderr,
-            "returncode": result.returncode,
-            "attempted_stages": _ngspice_attempted_stages(diagnostic_text),
-            "failure_kind": failure_kind,
-        })
-    except subprocess.TimeoutExpired as error:
-        return SolverOutcome("ngspice", TIMEOUT, DcStage.TIMEOUT, {
-            "directory": case_directory,
-            "raw": raw_path,
-            "log": log_path,
-            "command": command,
-            "stdout": error.stdout or "",
-            "stderr": error.stderr or "",
-            "returncode": None,
-            "failure_kind": "timeout",
-        })
-    except OSError as error:
-        return SolverOutcome("ngspice", FAILURE, DcStage.FAILED, {
-            "directory": case_directory,
-            "raw": raw_path,
-            "log": log_path,
-            "command": command,
-            "stdout": "",
-            "stderr": str(error),
-            "returncode": None,
-            "failure_kind": "simulator_error",
-        })
+def run_ngspice_baseline(filepath, filename, maxtime, simulator_path, output_root, profile="ng_full"):
+    from scripts.ngspice_testing import run_profile
+    code, stage, artifacts = run_profile(filepath, filename, maxtime, simulator_path, output_root, profile)
+    return SolverOutcome(profile, code, DcStage(stage), artifacts)
+
+
+def run_ngspice_ablation(filepath, filename, maxtime, simulator_path, output_root):
+    from scripts.ngspice_testing import PROFILES
+    return {profile: run_ngspice_baseline(filepath, filename, maxtime, simulator_path,
+                                         Path(output_root) / profile, profile)
+            for profile in PROFILES}
 
 
 def write_evaluation_manifest(evaluation, path, reward=None):

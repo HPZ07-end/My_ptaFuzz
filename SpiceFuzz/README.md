@@ -49,16 +49,20 @@ Similar parameters can be configured through command above or directly modified 
 
 ### PTA-directed DC convergence fuzzing
 
-The default PTA objective treats stock ngspice as the authoritative baseline.
-A target is counted only when ngspice reports a convergence failure and PTA
-reaches a steady-state solution. `--ngspice_bin` is therefore required:
+The default PTA objective uses a controlled ngspice full recovery profile as
+the authoritative baseline. It runs independent NR, NR+gmin, NR+gmin+source,
+and full (including optran) profiles. A target requires a valid PTA steady
+state and an independent replay of both the ngspice failure and PTA recovery.
+`--ngspice_bin` is therefore required. See [OPTIMIZATION.md](OPTIMIZATION.md)
+for the exact profiles, evidence checks, reward, training changes, and Windows
+commands. Neither the PTA source nor its executable is modified.
 
 ```bash
 python3 main_pta.py \
   --objective ngspice_differential \
   --ngspice_bin /absolute/path/to/ngspice \
   --pta_bin /absolute/path/to/PTA/Simulator/spice \
-  --seed_dir ./data/seed_netlist/pta \
+  --seed_dir ./exports/ngspice_remote_validation_20260929/netlists/priority_pta_required \
   --result_root ./result/pta_remote \
   --pta_output_root ./test/pta_remote \
   --workdir ./netlist_pta_remote
@@ -71,15 +75,22 @@ results must not be reported as evidence that stock ngspice fails:
 python3 main_pta.py --objective pta_internal --pta_bin /path/to/spice
 ```
 
-In `ngspice_differential` mode, ngspice NR/gmin/source success receives a
-negative reward. Only an ngspice convergence failure recovered by PTA receives
-the differential, PTA-stage, and novelty bonuses. Signed rewards are also
-propagated through the selected seed's actual mutation lineage; negative
-feedback uses a shorter decay than positive target credit. Retained seeds keep
-their ancestral state/action decisions, which are replayed as an independent
-zero-discount A2C batch when a descendant is evaluated. True targets are always
-retained with a higher sampling weight; gmin/source frontier candidates are
-retained probabilistically to preserve exploration without flooding the pool.
+Every ngspice success remains negative, including late recovery. Confirmed
+targets receive +12 before bounded difficulty, circuit novelty, parent-child
+progress, and cost shaping. Repeated local solver paths no longer earn extra
+target bonuses. Initial hints are frozen unless explicitly enabled.
+
+The contextual-bandit loop keeps discount zero, uses measured parent feedback,
+and trains against the actual temperature/epsilon/bonus sampling distribution.
+The critic uses two hidden layers, Huber value loss, and auxiliary outcome
+heads. Descendant rewards influence ancestor seed scheduling only; they are
+never replayed as ancestor actor labels. Runs save metadata, evaluation
+manifests, training losses, a policy checkpoint, and a summary.
+
+Use `evaluate_pta.py` to replay one saved deck or a directory with the same
+evaluator, without calling DeepSeek. Omitting ngspice is explicitly a local
+PTA diagnostic. The older standalone runner inside `exports/` is a historical
+validation-bundle snapshot; its output is not used as training labels.
 
 ## Citation
 
