@@ -3,7 +3,11 @@
 import argparse
 import hashlib
 import json
+import sys
 from pathlib import Path
+
+if sys.version_info < (3, 8):
+    raise SystemExit("Offline evaluation requires Python 3.8 or newer; run with python3.10 if available.")
 
 from scripts.dc_evaluation import write_evaluation_manifest
 from scripts.pta_pipeline import evaluate_candidate

@@ -2,6 +2,7 @@ import json
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
+from typing import Optional
 
 from scripts.pta_testing import FAILURE, SUCCESS, TIMEOUT, simulate_on_pta
 
@@ -61,7 +62,7 @@ class SolverOutcome:
 @dataclass
 class DcEvaluation:
     outcomes: dict
-    ngspice: SolverOutcome | None = None
+    ngspice: Optional[SolverOutcome] = None
     ngspice_profiles: dict = field(default_factory=dict)
     confirmation: dict = field(default_factory=dict)
     mutation: dict = field(default_factory=dict)

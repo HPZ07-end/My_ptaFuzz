@@ -74,6 +74,8 @@ critic 使用两层隐藏层、LayerNorm 和 Huber 值损失。按所选动作�
 
 以下命令在 SpiceFuzz 目录运行。将 `NGSPICE_EXE` 替换为已安装的真实可执行文件路径；无需更改 PTA。
 
+离线重放入口使用 Python 3.8 及以上的标准库；`SolverOutcome` 的可选类型使用 `typing.Optional`，不要求 Python 3.10 的 `| None` 标注。更旧的解释器会在导入项目模块前给出版本提示。完整强化学习搜索仍建议使用前述已验证的 Python 3.10 和匹配依赖环境。运行前用 `python3 --version` 检查实际解释器，不要假定 `python3` 指向虚拟环境或 Python 3.10。
+
 单网表完整重放，不调用 DeepSeek：
 
 ```powershell
