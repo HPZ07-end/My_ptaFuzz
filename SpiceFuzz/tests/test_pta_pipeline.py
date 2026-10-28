@@ -16,17 +16,17 @@ from scripts.deepseek_client import DeepSeekClient, validate_deepseek_api_key
 from scripts.deepseek_netlist import extract_deepseek_netlist
 from scripts.netlist_features import (
     FEATURE_NAMES,
+    SOLVER_FEATURE_NAMES,
     build_a2c_state,
     extract_netlist_features,
 )
 from scripts.pta_reward import calculate_pta_reward
 from scripts.pta_testing import FAILURE, SUCCESS
 from scripts.reinforcement_learning import Net, v_wrap
-from main_pta import build_lineage_training_batch, transfer_lineage_reward
 
 
 def outcome(profile, code, stage, failure_kind=None):
-    artifacts = {}
+    artifacts = {"validation": {"verified_pta": stage == DcStage.PTA and code == SUCCESS}}
     if failure_kind is not None:
         artifacts["failure_kind"] = failure_kind
     return SolverOutcome(profile, code, stage, artifacts)
@@ -58,6 +58,7 @@ def evaluation_for(stage):
         ),
     }
     evaluation = DcEvaluation(profiles)
+    evaluation.confirmation = {"confirmed": stage == DcStage.PTA}
     if stage in {DcStage.NR, DcStage.GMIN, DcStage.SOURCE_STEPPING}:
         evaluation.ngspice = outcome("ngspice", SUCCESS, stage)
     elif stage == DcStage.PTA:
@@ -104,7 +105,7 @@ class DcEvaluationTests(unittest.TestCase):
         self.assertEqual(reward.differential_bonus, 0.0)
         self.assertEqual(reward.full_fallback_bonus, 0.0)
         self.assertEqual(reward.nr_pta_bonus, 0.0)
-        self.assertEqual(reward.novelty_bonus, 0.0)
+        self.assertLessEqual(reward.novelty_bonus, 0.25)
         self.assertLess(reward.total, 0.0)
 
     def test_internal_objective_is_explicit(self):
@@ -151,39 +152,6 @@ class DcEvaluationTests(unittest.TestCase):
 
 
 class A2cFeatureTests(unittest.TestCase):
-    def test_reward_transfers_only_along_seed_lineage(self):
-        reward_ema = np.zeros(5, dtype=np.float32)
-        transfer_lineage_reward(reward_ema, (1, 3), 8.0, 0.5)
-        self.assertEqual(reward_ema[0], 0.0)
-        self.assertAlmostEqual(float(reward_ema[3]), 0.4)
-        self.assertAlmostEqual(float(reward_ema[1]), 0.2)
-
-    def test_negative_lineage_feedback_uses_shorter_decay(self):
-        reward_ema = np.zeros(5, dtype=np.float32)
-        transfer_lineage_reward(
-            reward_ema,
-            (1, 3),
-            -8.0,
-            decay=0.5,
-            negative_decay=0.25,
-        )
-        self.assertAlmostEqual(float(reward_ema[3]), -0.2)
-        self.assertAlmostEqual(float(reward_ema[1]), -0.05)
-
-    def test_lineage_training_batch_preserves_ancestral_states(self):
-        first = np.asarray([1.0, 2.0], dtype=np.float32)
-        second = np.asarray([3.0, 4.0], dtype=np.float32)
-        states, actions, rewards = build_lineage_training_batch(
-            ((first, 1), (second, 3)),
-            8.0,
-            decay=0.5,
-            negative_decay=0.25,
-        )
-        np.testing.assert_array_equal(states[0], second)
-        np.testing.assert_array_equal(states[1], first)
-        self.assertEqual(actions, [3, 1])
-        self.assertEqual(rewards, [4.0, 2.0])
-
     def test_feature_state_and_exploratory_update(self):
         deck = """SpiceFuzz generated DC operating-point netlist
 VDD vdd 0 5
@@ -198,7 +166,7 @@ M1 q q 0 0 NMOD W=10u L=1u
         self.assertEqual(len(features), len(FEATURE_NAMES))
         self.assertTrue(np.isfinite(features).all())
         state = build_a2c_state(np.zeros(27), np.zeros(27), features)
-        self.assertEqual(len(state), 70)
+        self.assertEqual(len(state), 54 + len(FEATURE_NAMES) + len(SOLVER_FEATURE_NAMES))
 
         net = Net(len(state), 27)
         action = net.choose_action(

@@ -1,5 +1,9 @@
+import re
 import subprocess
+import time
 from pathlib import Path
+
+from scripts.solver_validation import validate_pta_artifacts
 
 
 SUCCESS = 0
@@ -22,10 +26,10 @@ def artifact_paths(output_root, filename):
 
 
 def validate_pta_dc_netlist(filepath):
-    """Require an OP-compatible deck and reject non-OP analysis cards."""
-    forbidden = {".tran", ".pstran", ".dc", ".ac", ".pz", ".noise"}
-    directives = set()
-    for raw_line in Path(filepath).read_text(errors="replace").splitlines():
+    """Enforce the common-deck contract independently of the LLM prompt."""
+    allowed = {".model", ".subckt", ".ends", ".op", ".nodeset", ".ic", ".print", ".end"}
+    lines = []
+    for raw_line in Path(filepath).read_text(errors="replace").splitlines()[1:]:
         line = raw_line.strip()
         if not line or line.startswith("*"):
             continue
@@ -33,12 +37,62 @@ def validate_pta_dc_netlist(filepath):
             index = line.find(marker)
             if index != -1:
                 line = line[:index].strip()
-        if line.startswith("."):
-            directives.add(line.split()[0].lower())
-    unsupported = sorted(directives & forbidden)
-    if unsupported:
-        return False, "PTA fuzzing requires DC operating point; found " + ", ".join(unsupported)
+        if not line:
+            continue
+        if line.startswith("+"):
+            if not lines:
+                return False, "orphan continuation line"
+            lines[-1] += " " + line[1:]
+        else:
+            lines.append(line)
+    cards = [line.split()[0].lower() for line in lines]
+    if cards.count(".op") != 1 or cards.count(".end") != 1 or not cards or cards[-1] != ".end":
+        return False, "require exactly one .op and final .end"
+    depth = 0
+    for line in lines:
+        tokens = line.split()
+        card = tokens[0].lower()
+        if card == ".subckt":
+            if depth:
+                return False, "nested .subckt definitions are not permitted"
+            depth += 1
+        elif card == ".ends":
+            if not depth:
+                return False, "unmatched .ends"
+            depth -= 1
+        elif depth and card.startswith("."):
+            return False, "control directives inside .subckt are not permitted"
+        if card.startswith(".") and card not in allowed:
+            return False, "unsupported or solver-specific directive: " + card
+        if card == ".print" and (len(tokens) < 3 or tokens[1].lower() != "op"):
+            return False, "only .print op is permitted"
+        if not card.startswith(".") and card[0] not in "rclvidqmx":
+            return False, "unsupported device: " + tokens[0]
+        if re.search(r"(?i)(?<![\w.])[+-]?(?:nan|inf(?:inity)?)(?![\w.])", " ".join(tokens[1:])):
+            return False, "non-finite numeric value"
+    if depth:
+        return False, "unclosed .subckt"
     return True, ""
+
+
+def initial_hint_signature(filepath):
+    """Hints are an explicit experiment axis, frozen in ordinary mutation runs."""
+    hints = []
+    lines = []
+    for raw in Path(filepath).read_text(errors="replace").splitlines()[1:]:
+        line = re.split(r";|\$|//", raw, maxsplit=1)[0].strip().lower()
+        if line.startswith("+") and lines:
+            lines[-1] += " " + line[1:]
+        elif line and not line.startswith("*"):
+            lines.append(line)
+    for line in lines:
+        if line.startswith((".nodeset", ".ic")):
+            hints.append(re.sub(r"\s+", "", line))
+        elif line and not line.startswith(("*", ".")):
+            fields = re.findall(r"\bic\s*=\s*.*?(?=\s+\w+\s*=|\s+off\b|$)|\boff\b", line)
+            if fields:
+                hints.append(line.split()[0] + ":" + re.sub(r"\s+", "", ",".join(fields)))
+    return tuple(sorted(hints))
 
 
 def parse_with_pta(filepath, maxtime, simulator_path):
@@ -104,6 +158,9 @@ def simulate_on_pta(
     output_root = Path(output_root).resolve()
     output_root.mkdir(parents=True, exist_ok=True)
     artifacts = artifact_paths(output_root, filename)
+    artifacts["directory"].mkdir(parents=True, exist_ok=True)
+    for key in ("listing", "raw", "error", "report", "trace"):
+        artifacts[key].unlink(missing_ok=True)
 
     command = [
         str(Path(simulator_path).resolve()),
@@ -123,6 +180,7 @@ def simulate_on_pta(
         command.extend(["--pta-option", assignment])
     command.append(str(filepath))
 
+    started = time.monotonic()
     try:
         result = subprocess.run(
             command,
@@ -137,6 +195,8 @@ def simulate_on_pta(
             "stdout": error.stdout or "",
             "stderr": error.stderr or "",
             "returncode": None,
+            "failure_kind": "timeout",
+            "elapsed_seconds": time.monotonic() - started,
         })
         return TIMEOUT, artifacts
     except OSError as error:
@@ -145,6 +205,8 @@ def simulate_on_pta(
             "stdout": "",
             "stderr": str(error),
             "returncode": None,
+            "failure_kind": "infrastructure",
+            "elapsed_seconds": time.monotonic() - started,
         })
         return FAILURE, artifacts
 
@@ -153,6 +215,13 @@ def simulate_on_pta(
         "stdout": result.stdout,
         "stderr": result.stderr,
         "returncode": result.returncode,
+        "elapsed_seconds": time.monotonic() - started,
     })
-    succeeded = result.returncode == 0 and artifacts["raw"].is_file()
+    valid, evidence = validate_pta_artifacts(artifacts) if result.returncode == 0 else (False, {})
+    artifacts["validation"] = evidence
+    if result.returncode == 0 and not valid:
+        artifacts["failure_kind"] = "invalid_output"
+    elif result.returncode != 0:
+        artifacts["failure_kind"] = "convergence" if "did not converge" in str(result.stderr).lower() or "analysis failed" in str(result.stderr).lower() else "simulator_error"
+    succeeded = result.returncode == 0 and valid
     return (SUCCESS if succeeded else FAILURE), artifacts

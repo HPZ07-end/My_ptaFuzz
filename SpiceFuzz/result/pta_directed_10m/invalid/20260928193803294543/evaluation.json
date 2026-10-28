@@ -1,7 +1,0 @@
-{
-  "reason": "E:\\AAA_Update\\Science\\spiceAgent-SRT\\V1.0\\SpiceFuzz\\netlist_pta_directed_10m\\20260928193803294543.cir:3: parse error: Unknown MOSFET model: PMOS\n",
-  "reward": {
-    "total": -4.0
-  },
-  "stage": "invalid"
-}

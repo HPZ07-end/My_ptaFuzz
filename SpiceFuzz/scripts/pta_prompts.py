@@ -18,7 +18,7 @@ COMMON_NETLIST_CONTRACT = """Common-netlist contract:
 """
 
 
-def build_pta_mutation_prompt(seed, mutation, guidance):
+def build_pta_mutation_prompt(seed, mutation, guidance, allow_initial_hint_mutations=False, solver_feedback=""):
     guidance_text = guidance.strip() if guidance else (
         "Apply the named mutation using only the common-netlist contract."
     )
@@ -34,6 +34,12 @@ Input netlist:
 ```
 {seed.rstrip()}
 ```
+
+Initial-condition policy:
+{"Initial hints may be mutated in this explicitly enabled experiment." if allow_initial_hint_mutations else "Preserve all existing .nodeset, .ic, device IC= and OFF hints exactly. Do not add new hints."}
+
+Measured parent feedback (observations only; do not fabricate solver outcomes):
+{solver_feedback or "No previous solver feedback."}
 
 Produce the single mutated netlist now using the required BEGIN_NETLIST and END_NETLIST lines.
 """

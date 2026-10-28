@@ -47,6 +47,8 @@ def validate_deepseek_api_key(api_key):
             "DEEPSEEK_API_KEY must contain only ASCII characters; do not use "
             "the Chinese placeholder text"
         ) from error
+    if not api_key or any(ord(char) < 33 or ord(char) > 126 for char in api_key):
+        raise ValueError("DEEPSEEK_API_KEY is empty or contains whitespace/control characters; enter only the key")
     return api_key
 
 
