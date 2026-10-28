@@ -120,7 +120,9 @@ class DcEvaluation:
         outcomes += [value for value in self.confirmation.values() if isinstance(value, SolverOutcome)]
         if self.ngspice:
             outcomes.append(self.ngspice)
-        return not any(outcome and outcome.artifacts.get("failure_kind") == "infrastructure" for outcome in outcomes)
+        return not any(outcome and outcome.artifacts.get("failure_kind") in {
+            "infrastructure", "crash", "unsettled_optran"
+        } for outcome in outcomes)
 
     @property
     def internal_target(self):

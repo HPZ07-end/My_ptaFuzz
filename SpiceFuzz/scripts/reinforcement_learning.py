@@ -48,12 +48,16 @@ class Net(nn.Module):
                     raise ValueError("sampling metadata requires one decision")
                 info = {"temperature": float(temperature), "epsilon": float(epsilon),
                         "exploration_bonus": np.zeros(self.a_dim).tolist() if exploration_bonus is None else np.asarray(exploration_bonus).tolist(),
-                        "log_prob": float(distribution.log_prob(sampled).item())}
+                        "log_prob": float(distribution.log_prob(sampled).item()),
+                        "action_probabilities": distribution.probs[0].tolist(),
+                        "policy_probabilities": torch.softmax(logits[0], dim=-1).tolist(),
+                        "value_prediction": float(self.forward(s)[1].item())}
                 return sampled, info
             return sampled
 
     def loss_func(self, s, a, v_t, entropy_beta=0.0, value_loss_weight=0.5,
-                  behavior=None, auxiliary_targets=None, auxiliary_weight=0.1):
+                  behavior=None, auxiliary_targets=None, auxiliary_weight=0.1,
+                  return_metrics=False):
         self.train()
         logits, values = self.forward(s)
         advantage = (v_t - values).detach().squeeze(-1)
@@ -88,7 +92,23 @@ class Net(nn.Module):
             mask = labels >= 0
             if mask.any():
                 auxiliary_loss = auxiliary_loss + F.cross_entropy(predicted[mask, 3:], labels[mask])
-        return actor_loss + value_loss_weight * critic_loss + auxiliary_weight * auxiliary_loss - entropy_beta * distribution.entropy().mean()
+        entropy = distribution.entropy().mean()
+        loss = actor_loss + value_loss_weight * critic_loss + auxiliary_weight * auxiliary_loss - entropy_beta * entropy
+        if not return_metrics:
+            return loss
+        variance = v_t.var(unbiased=False)
+        metrics = {
+            "actor_loss": float(actor_loss.detach()), "critic_loss": float(critic_loss.detach()),
+            "auxiliary_loss": float(auxiliary_loss.detach()), "entropy": float(entropy.detach()),
+            "critic_mse": float(F.mse_loss(values, v_t).detach()),
+            "value_mean": float(values.detach().mean()), "reward_mean": float(v_t.detach().mean()),
+            "explained_variance": float((1 - (v_t - values).var(unbiased=False) / variance).detach())
+                if variance.item() > 1e-8 else None,
+            "mean_action_probabilities": distribution.probs.detach().mean(dim=0).tolist(),
+            "mean_policy_probabilities": F.softmax(logits, dim=1).detach().mean(dim=0).tolist(),
+            "target_head_active": bool(auxiliary_targets and any(item.get("target", -1) > 0 for item in auxiliary_targets)),
+        }
+        return loss, metrics
 
 
 def v_wrap(np_array, dtype=np.float32):

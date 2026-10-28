@@ -12,6 +12,34 @@ from scripts.pta_testing import SUCCESS, TIMEOUT, parse_with_pta, simulate_on_pt
 from scripts.solver_validation import solutions_agree
 
 
+def verify_optran_stability(evaluation, path, timeout, ngspice_bin, root):
+    """Check duration sensitivity; this is not a device-equation residual proof.
+
+    Unsettled transient endpoints are ambiguous, never convergence-failure hits.
+    Keep their raw evidence and exclude them from policy updates.
+    """
+    ng = evaluation.ngspice
+    if not ng or not ng.succeeded or ng.stage != DcStage.OPTRAN:
+        return
+    from scripts.ngspice_testing import run_profile
+    original = ng.artifacts.get("validation", {}).get("solution")
+    checks = []
+    for factor, stop in ((10, "100u"), (100, "1m")):
+        name = "optran_" + str(factor) + "x"
+        code, stage, artifacts = run_profile(path, Path(path).name, timeout, ngspice_bin,
+                                              Path(root) / name, "ng_full", "1 1 1 10n " + stop + " 0")
+        outcome = SolverOutcome(name, code, DcStage(stage), artifacts)
+        evaluation.confirmation[name] = outcome
+        checks.append(outcome.succeeded and solutions_agree(original, artifacts.get("validation", {}).get("solution")))
+    stable = all(checks)
+    evaluation.confirmation["optran_duration_stable"] = stable
+    evaluation.confirmation["optran_validation_limit"] = "duration sensitivity only; DC residual and model equivalence not established"
+    ng.artifacts.setdefault("validation", {})["duration_stable"] = stable
+    if not stable:
+        ng.code = 1
+        ng.artifacts["failure_kind"] = "unsettled_optran"
+
+
 def evaluate_candidate(path, timeout, pta_bin, output_root, ngspice_bin=None,
                        config_path=None, pta_options=None, confirm=True):
     path, root = Path(path), Path(output_root)
@@ -56,6 +84,7 @@ def evaluate_candidate(path, timeout, pta_bin, output_root, ngspice_bin=None,
     if ngspice_bin:
         evaluation.ngspice_profiles = run_ngspice_ablation(path, path.name, timeout, ngspice_bin, root)
         evaluation.ngspice = evaluation.ngspice_profiles["ng_full"]
+        verify_optran_stability(evaluation, path, timeout, ngspice_bin, root)
     if confirm and evaluation.baseline_failed and evaluation.pta_succeeded and ngspice_bin:
         original = next(o for o in (evaluation.nr_pta, evaluation.full_fallback) if o.verified_pta)
         repeat_ng = run_ngspice_baseline(path, path.name, timeout, ngspice_bin, root / "confirm_ng", "ng_full")

@@ -82,9 +82,12 @@ def successful_stage(text, valid_op=False, profile=None):
     return "unknown"
 
 
-def run_profile(filepath, filename, maxtime, simulator_path, output_root, profile="ng_full"):
+def run_profile(filepath, filename, maxtime, simulator_path, output_root, profile="ng_full", optran_parameters=None):
     if profile not in PROFILES:
         raise ValueError(f"unknown ngspice profile: {profile}")
+    parameters = PROFILES[profile] if optran_parameters is None else optran_parameters
+    if len(parameters.split()) != 6 or not all(re.fullmatch(r"[0-9.eE+\-]+[a-zA-Z]*", item) for item in parameters.split()):
+        raise ValueError("optran requires six numeric parameters")
     source = Path(filepath).resolve()
     directory = Path(output_root).resolve() / Path(filename).stem
     directory.mkdir(parents=True, exist_ok=True)
@@ -99,14 +102,14 @@ def run_profile(filepath, filename, maxtime, simulator_path, output_root, profil
         return 1, "invalid", {"directory": directory, "failure_kind": "invalid", "stderr": reason}
     body = re.sub(r"(?im)^\s*\.end\s*$", "", original).rstrip()
     control = [".control", "set noaskquit", "set filetype=ascii", "version",
-               "optran " + PROFILES[profile],
+               "optran " + parameters,
                "option " + " ".join(f"{key}={value}" for key, value in SETTINGS.items()),
                "echo SPICEFuzz_OP_BEGIN", "op", "rusage totiter",
                "write op.raw all", "echo SPICEFuzz_OP_END", "quit", ".endc", ".end"]
     deck.write_text(body + "\n" + "\n".join(control) + "\n", encoding="utf-8")
     command = [str(Path(simulator_path).resolve()), "-n", "-b", "-o", str(log), str(deck)]
     artifacts = {"directory": directory, "raw": raw, "log": log, "command": command,
-                 "profile_settings": {"optran": PROFILES[profile], **SETTINGS},
+                 "profile_settings": {"optran": parameters, **SETTINGS},
                  "input_sha256": hashlib.sha256(source.read_bytes()).hexdigest()}
     started = time.monotonic()
     try:

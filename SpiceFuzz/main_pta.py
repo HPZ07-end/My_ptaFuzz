@@ -43,6 +43,7 @@ from scripts.pta_reward import calculate_pta_reward
 from scripts.pta_pipeline import evaluate_candidate, iter_outcomes
 from scripts.pta_testing import initial_hint_signature
 from scripts.reinforcement_learning import Net, v_wrap
+from scripts.training_diagnostics import append_jsonl, exploration_progress, structural_group, sha256_file
 
 
 def write_clean_variant(path, content):
@@ -185,6 +186,7 @@ def update_a2c(
     terminal=False,
     behavior=None,
     auxiliary_targets=None,
+    metrics_out=None,
 ):
     if not states:
         return None
@@ -206,9 +208,20 @@ def update_a2c(
         entropy_beta=entropy_beta,
         behavior=behavior,
         auxiliary_targets=auxiliary_targets,
+        return_metrics=metrics_out is not None,
     )
+    if metrics_out is not None:
+        loss, metrics = loss
+        metrics_out.update(metrics)
+        metrics_out["batch_size"] = len(states)
+    if not torch.isfinite(loss):
+        raise FloatingPointError("non-finite training loss; experiment stopped")
     loss.backward()
-    torch.nn.utils.clip_grad_norm_(net.parameters(), 5.0)
+    norm = torch.nn.utils.clip_grad_norm_(net.parameters(), 5.0)
+    if not torch.isfinite(norm):
+        raise FloatingPointError("non-finite training gradient; experiment stopped")
+    if metrics_out is not None:
+        metrics_out["gradient_norm"] = float(norm)
     optimizer.step()
     states.clear()
     actions.clear()
@@ -242,6 +255,7 @@ def parse_arguments():
     )
     parser.add_argument("--max_time", type=int, default=86400)
     parser.add_argument("--max_candidates", type=int, help="Optional evaluated-candidate budget")
+    parser.add_argument("--max_attempts", type=int, help="Generation-attempt limit, including duplicate/format failures; default 4x candidate budget")
     parser.add_argument("--random_seed", type=int, default=0)
     parser.add_argument("--allow_initial_hint_mutations", action="store_true")
     parser.add_argument("--lr", type=float, default=0.001)
@@ -363,6 +377,10 @@ def main():
         raise ValueError("time budgets must be positive")
     if args.max_candidates is not None and args.max_candidates <= 0:
         raise ValueError("max_candidates must be positive")
+    if args.max_attempts is None and args.max_candidates is not None:
+        args.max_attempts = 4 * args.max_candidates
+    if args.max_attempts is not None and args.max_attempts <= 0:
+        raise ValueError("max_attempts must be positive")
     if (args.result_root / "run.json").exists():
         raise FileExistsError("result_root already contains a run; choose a fresh result_root")
     if not 0.0 <= args.lineage_decay <= 1.0 or args.lineage_depth <= 0:
@@ -383,8 +401,14 @@ def main():
     workdir = args.workdir
     workdir.mkdir(parents=True, exist_ok=True)
     seed_names = []
-    for seed_path in args.seed_dir.iterdir():
+    seen_inputs, structure_counts, seed_hashes = {}, {}, {}
+    for seed_path in sorted(args.seed_dir.iterdir()):
         if seed_path.is_file() and seed_path.suffix.lower() in {".cir", ".net", ".sp"}:
+            digest = sha256_file(seed_path)
+            seed_hashes[seed_path.name] = digest
+            if digest in seen_inputs:
+                continue
+            seen_inputs[digest] = str(seed_path.resolve())
             seed_names.append(seed_path.name)
             if seed_path.resolve() != (workdir / seed_path.name).resolve():
                 shutil.copy2(seed_path, workdir / seed_path.name)
@@ -409,7 +433,10 @@ def main():
     parent_evaluations = {}
     seed_parents = {}
     args.result_root.mkdir(parents=True, exist_ok=True)
-    metadata = {"schema_version": 2, "random_seed": args.random_seed, "objective": args.objective,
+    metadata = {"schema_version": 3, "random_seed": args.random_seed, "objective": args.objective,
+                "seed_sha256": seed_hashes, "exploration_schedule": "candidate_budget" if args.max_candidates else "wall_time",
+                "candidate_budget_semantics": "unique_assessed_inputs_including_hint_rejections",
+                "optran_validation": "duration_10x_100x_stability_not_a_DC_residual_proof",
                 "mutations": mutations, "features": list(FEATURE_NAMES), "solver_features": list(SOLVER_FEATURE_NAMES),
                 "arguments": {key: str(value) if isinstance(value, Path) else value
                               for key, value in vars(args).items() if key != "deepseek_api_key"},
@@ -424,11 +451,16 @@ def main():
     error_feedback = {}
     stage_counts = {stage.value: 0 for stage in DcStage}
     total_num = target_num = 0
+    attempts = duplicate_num = format_failures = training_updates = 0
+    api_requests = api_failures = consecutive_api_failures = 0
+    assessed_hashes, nr_target_hashes = set(), set()
     deepseek_time = simulation_time = parent_simulation_time = 0.0
     unique_targets = set()
     start_time = time.time()
 
-    while time.time() - start_time < args.max_time and (args.max_candidates is None or total_num < args.max_candidates):
+    while (time.time() - start_time < args.max_time
+           and (args.max_candidates is None or total_num < args.max_candidates)
+           and (args.max_attempts is None or attempts < args.max_attempts)):
         print("---------------------")
         seed_name = random.choices(
             seed_names,
@@ -455,7 +487,7 @@ def main():
         if time.time() - start_time >= args.max_time:
             break
         state = build_a2c_state(selection_counts, reward_ema, seed_features, extract_solver_features(parent))
-        progress = min(1.0, (time.time() - start_time) / max(1, args.max_time))
+        progress = exploration_progress(total_num, args.max_candidates, time.time() - start_time, args.max_time)
         epsilon = args.exploration_start + progress * (
             args.exploration_end - args.exploration_start
         )
@@ -465,6 +497,11 @@ def main():
             epsilon=epsilon, exploration_bonus=count_bonus, return_info=True)
         mutation_no = int(sampled.item())
         mutation = mutations[mutation_no]
+        attempts += 1
+        selection_counts[mutation_no] += 1.0
+        decision = {"attempt": attempts, "evaluations_before": total_num, "parent": seed_name,
+                    "action": mutation_no, "strategy": mutation, "behavior": behavior,
+                    "state": state.tolist(), "exploration_progress": progress}
         feedback_key = (seed_name, mutation_no)
         print(f"Selected seed: {seed_name}")
         print(f"Seed weight: {seed_weights.get(seed_name, 1.0):.2f}")
@@ -496,6 +533,7 @@ def main():
         request_messages = messages
         for format_attempt in range(args.deepseek_format_retries + 1):
             try:
+                api_requests += 1
                 reply = deepseek_client.create_chat_completion(
                     messages=request_messages,
                     model=args.deepseek_model,
@@ -506,7 +544,12 @@ def main():
                     ),
                     thinking=False,
                 )
+                consecutive_api_failures = 0
             except DeepSeekAPIError as error:
+                api_failures += 1
+                consecutive_api_failures += 1
+                if consecutive_api_failures >= 3:
+                    raise RuntimeError("three consecutive DeepSeek request failures; stopping instead of spending the remaining budget") from error
                 print(f"DeepSeek request failed: {error}")
                 format_diagnostic = str(error)
                 break
@@ -533,6 +576,7 @@ def main():
                 ]
         deepseek_time += time.time() - deepseek_start
         if variant_content is None:
+            format_failures += 1
             failure_directory = archive_deepseek_format_failure(
                 args.result_root,
                 seed_name,
@@ -545,13 +589,27 @@ def main():
                 f"after format repair: {format_diagnostic}. Raw replies saved to "
                 f"{failure_directory}"
             )
+            append_jsonl(args.result_root / "decisions.jsonl", {**decision, "status": "generation_failed", "diagnostic": format_diagnostic})
             continue
 
         variant_name = datetime.now().strftime("%Y%m%d%H%M%S%f") + ".cir"
         variant_path = workdir / variant_name
         if not write_clean_variant(variant_path, variant_content):
+            format_failures += 1
+            append_jsonl(args.result_root / "decisions.jsonl", {**decision, "status": "empty_variant"})
+            continue
+        digest = sha256_file(variant_path)
+        if digest in seen_inputs:
+            duplicate_num += 1
+            append_jsonl(args.result_root / "decisions.jsonl", {**decision, "status": "duplicate",
+                         "source_sha256": digest, "first_seen": seen_inputs[digest], "trainable": False})
+            error_feedback[feedback_key] = "The generated netlist duplicates an already seen input. Make a substantive circuit change."
+            variant_path.unlink()
             continue
         total_num += 1
+        assessed_hashes.add(digest)
+        group = structural_group(variant_path)
+        structure_counts[group] = structure_counts.get(group, 0) + 1
 
         evaluation = reward_breakdown = None
         target_hit = False
@@ -562,7 +620,7 @@ def main():
             evaluation = evaluate_candidate(variant_path, args.maxtime, pta_bin, args.pta_output_root,
                                             ngspice_bin, args.pta_config, args.pta_option)
             evaluation.mutation.update({"parent": seed_name, "action": mutation_no, "strategy": mutation,
-                                        "behavior": behavior})
+                                        "behavior": behavior, "structure_group": group})
             novelty = calculate_novelty(workdir, seed_names, variant_path)
             reward_breakdown = calculate_pta_reward(evaluation, novelty, args.objective, parent,
                                                    cost_budget=args.maxtime * 8)
@@ -575,7 +633,6 @@ def main():
         simulation_time += time.time() - simulation_start
 
         stage_counts[stage.value] += 1
-        selection_counts[mutation_no] += 1.0
         trainable = evaluation is None or evaluation.trainable
         if trainable:
             reward_ema[mutation_no] = ((1.0 - args.reward_ema_alpha) * reward_ema[mutation_no]
@@ -591,6 +648,12 @@ def main():
         )
 
         result_directory = args.result_root / stage.value / variant_path.stem
+        seen_inputs[digest] = str((result_directory / variant_path.name).resolve())
+        append_jsonl(args.result_root / "decisions.jsonl", {**decision, "status": "assessed",
+                     "source_sha256": digest, "structure_group": group, "stage": stage.value,
+                     "reward": reward_value, "trainable": trainable,
+                     "nr_differential": bool(evaluation and evaluation.nr_differential_candidate),
+                     "confirmed_target": target_hit})
         if evaluation is not None:
             archive_evaluation(
                 evaluation,
@@ -599,6 +662,10 @@ def main():
                 variant_path,
                 reward_breakdown,
             )
+            if evaluation.nr_differential_candidate:
+                nr_target_hashes.add(digest)
+            if not evaluation.trainable:
+                raise RuntimeError("non-trainable simulator evidence; stopped after archiving " + str(result_directory))
             if target_hit:
                 target_num += 1
                 unique_targets.add(evaluation.mutation["source_sha256"])
@@ -667,6 +734,7 @@ def main():
         )
         elapsed = time.time() - start_time
         if buffer_s and (len(buffer_s) >= args.rollout_size or elapsed >= args.max_time):
+            metrics = {}
             loss = update_a2c(
                 net,
                 optimizer,
@@ -678,12 +746,15 @@ def main():
                 args.entropy_beta,
                 terminal=elapsed >= args.max_time,
                 behavior=buffer_behavior, auxiliary_targets=buffer_auxiliary,
+                metrics_out=metrics,
             )
+            training_updates += 1
             print(f"Policy/critic loss: {loss:.6f}")
-            with (args.result_root / "training.jsonl").open("a", encoding="utf-8") as stream:
-                stream.write(json.dumps({"evaluations": total_num, "loss": loss, "targets": target_num}) + "\n")
+            append_jsonl(args.result_root / "training.jsonl", {"evaluations": total_num,
+                         "attempts": attempts, "loss": loss, "targets": target_num, **metrics})
 
     if buffer_s:
+        metrics = {}
         fallback_state = build_a2c_state(
             selection_counts,
             reward_ema,
@@ -700,14 +771,23 @@ def main():
             args.entropy_beta,
             terminal=True,
             behavior=buffer_behavior, auxiliary_targets=buffer_auxiliary,
+            metrics_out=metrics,
         )
-        with (args.result_root / "training.jsonl").open("a", encoding="utf-8") as stream:
-            stream.write(json.dumps({"evaluations": total_num, "loss": loss, "targets": target_num}) + "\n")
+        training_updates += 1
+        append_jsonl(args.result_root / "training.jsonl", {"evaluations": total_num,
+                     "attempts": attempts, "loss": loss, "targets": target_num, **metrics})
 
     torch.save({"model": net.state_dict(), "optimizer": optimizer.state_dict(),
                 "metadata": metadata, "selection_counts": selection_counts, "reward_ema": reward_ema},
                args.result_root / "policy.pt")
     summary = {"evaluations": total_num, "confirmed_targets": target_num, "stage_counts": stage_counts,
+               "attempts": attempts, "duplicates_skipped": duplicate_num, "format_failures": format_failures,
+               "api_requests": api_requests, "api_failures": api_failures,
+               "training_updates": training_updates, "unique_assessed_inputs": len(assessed_hashes),
+               "unique_nr_differential_inputs": len(nr_target_hashes), "structure_group_counts": structure_counts,
+               "budget_complete": args.max_candidates is not None and total_num >= args.max_candidates,
+               "stop_reason": "candidate_budget" if args.max_candidates is not None and total_num >= args.max_candidates else
+                              "attempt_budget" if args.max_attempts is not None and attempts >= args.max_attempts else "time_budget",
                "unique_target_inputs": len(unique_targets),
                "elapsed_seconds": time.time() - start_time, "deepseek_seconds": deepseek_time,
                "simulation_seconds": simulation_time + parent_simulation_time,

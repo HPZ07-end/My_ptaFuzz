@@ -1,7 +1,5 @@
 # ngspice feedback optimization
 
-本次实现只修改 SpiceFuzz。PTA 的源码、测试、参考数据、编译文件和可执行程序均不修改。
-
 ## 1. 可信判定
 
 `scripts/ngspice_testing.py` 为每个配置启动独立进程、使用独立目录，并在运行前移除该目录中旧的 raw/log。进程使用 `-n` 禁用用户 `.spiceinit`，在评估器自己的控制段中固定求解选项，强制输出 ASCII OP。
